@@ -4,10 +4,6 @@ import draggable from "vuedraggable";
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import router from "@/router";
 
-const gotoNextPage = () => {
-  router.replace({ name: "step3" });
-};
-
 const backlogPriorities = ref([
   { title: "會員系統", description: "（登入、註冊、權理管理）", priority: 1 },
   { title: "應徵者的線上履歷編輯器", description: null, priority: 2 },
@@ -22,6 +18,20 @@ const backlogPriorities = ref([
     priority: 4,
   },
 ]);
+
+const checkAnswerOrGoNextPage = () => {
+  const currentOrder = backlogPriorities.value.map((record) => record.priority);
+  const isCorrect =
+    JSON.stringify([1, 2, 3, 4]) === JSON.stringify(currentOrder);
+  if (isCorrect) {
+    router.replace({ name: "step3" });
+  } else {
+    // show tips
+    backlogPriorities.value = backlogPriorities.value.sort(
+      (a, b) => a.priority - b.priority
+    );
+  }
+};
 
 onMounted(() => {
   backlogPriorities.value = backlogPriorities.value.sort(
@@ -51,6 +61,9 @@ onMounted(() => {
         </template>
       </draggable>
     </div>
-    <NextStepBtn btn-label="排序完成" @click="gotoNextPage"></NextStepBtn>
+    <NextStepBtn
+      btn-label="排序完成"
+      @click="checkAnswerOrGoNextPage"
+    ></NextStepBtn>
   </main>
 </template>

@@ -1,58 +1,28 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import draggable from "vuedraggable";
+import NextStepBtn from "@/components/NextStepBtn.vue";
+import router from "@/router";
 
-const list1 = ref([
-  { name: "John", id: 1 },
-  { name: "Joao", id: 2 },
-  { name: "Jean", id: 3 },
-  { name: "Gerard", id: 4 },
-]);
-const list2 = ref([
-  { name: "Juan", id: 5 },
-  { name: "Edgard", id: 6 },
-  { name: "Johnson", id: 7 },
-]);
-
-const log = (evt: any) => {
-  window.console.log(evt);
+const gotoNextPage = () => {
+  router.replace({ name: "step4" });
 };
 </script>
 
 <template>
-  <div class="row">
-    <div class="col-3">
-      <h3>Draggable 1</h3>
-      <draggable
-        class="list-group"
-        :list="list1"
-        group="people"
-        @change="log"
-        itemKey="name"
-      >
-        <template #item="{ element, index }">
-          <div class="list-group-item">{{ element.name }} {{ index }}</div>
-        </template>
-      </draggable>
+  <main>
+    <div class="chat-list">
+      <div class="chat-block">
+        <div class="avatar"></div>
+        <div class="chat-message">
+          <p>
+            產品待辦清單好了之後，我們來召集 Scrum Master
+            和開發團隊共同召開短衝規劃會議 (Sprint Planning)。
+          </p>
+          <p>
+            短衝即是一個迭代，具有固定時間限制，我們會在這個會議中，決定要完成哪些工作事項來達到商業需求，列出短衝待辦清單，並由開發團隊在接下來的產品開發週期裡執行。
+          </p>
+        </div>
+      </div>
     </div>
-
-    <div class="col-3">
-      <h3>Draggable 2</h3>
-      <draggable
-        class="list-group"
-        :list="list2"
-        group="people"
-        @change="log"
-        itemKey="name"
-      >
-        <template #item="{ element, index }">
-          <div class="list-group-item">{{ element.name }} {{ index }}</div>
-        </template>
-      </draggable>
-    </div>
-
-    <rawDisplayer class="col-3" :value="list1" title="List 1" />
-
-    <rawDisplayer class="col-3" :value="list2" title="List 2" />
-  </div>
+    <NextStepBtn btn-label="我來挑戰" @click="gotoNextPage"></NextStepBtn>
+  </main>
 </template>
