@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import StepBar from "@/components/StepBar.vue";
+import StepList from "@/components/StepList.vue";
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import router from "@/router";
 
@@ -9,7 +11,10 @@ const gotoNextPage = () => {
 
 <template>
   <main>
-    <nav></nav>
+    <nav class="d-block">
+      <StepBar :current-step="1"></StepBar>
+      <StepList :current-step="1"></StepList>
+    </nav>
     <article class="">
       <p>PO 也就是產品負責人 (Product Owner)。</p>
       <p>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import draggable from "vuedraggable";
+import StepBar from "@/components/StepBar.vue";
+import StepList from "@/components/StepList.vue";
 
 const list1 = ref([
   { name: "John", id: 1 },
@@ -13,6 +15,11 @@ const list2 = ref([
   { name: "Edgard", id: 6 },
   { name: "Johnson", id: 7 },
 ])
+const list3 = ref([
+  { name: "aaa", id: 5 },
+  { name: "Edgard", id: 6 },
+  { name: "Johnson", id: 7 },
+])
 
 const log = (evt: any) => {
   window.console.log(evt);
@@ -21,12 +28,31 @@ const log = (evt: any) => {
 
 <template>
   <div class="row">
+    <nav class="d-block">
+      <StepBar :current-step="4"></StepBar>
+      <StepList :current-step="4"></StepList>
+    </nav>
     <div class="col-3">
       <h3>Draggable 1</h3>
       <draggable
         class="list-group"
         :list="list1"
         group="people"
+        @change="log"
+        itemKey="name"
+      >
+        <template #item="{ element, index }">
+          <div class="list-group-item">{{ element.name }} {{ index }}</div>
+        </template>
+      </draggable>
+    </div>
+
+    <div class="col-3">
+      <h3>Draggable 1</h3>
+      <draggable
+        class="list-group"
+        :list="list3"
+        group="people1"
         @change="log"
         itemKey="name"
       >

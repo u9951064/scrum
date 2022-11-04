@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import StepBar from "@/components/StepBar.vue";
+import StepList from "@/components/StepList.vue";
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import router from "@/router";
 
@@ -9,6 +11,10 @@ const gotoNextPage = () => {
 
 <template>
   <main>
+    <nav class="d-block">
+      <StepBar :current-step="3"></StepBar>
+      <StepList :current-step="3"></StepList>
+    </nav>
     <div class="chat-list">
       <div class="chat-block">
         <div class="avatar"></div>

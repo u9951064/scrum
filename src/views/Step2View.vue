@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import draggable from "vuedraggable";
+import StepBar from "@/components/StepBar.vue";
+import StepList from "@/components/StepList.vue";
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import router from "@/router";
 
@@ -42,6 +44,10 @@ onMounted(() => {
 
 <template>
   <main>
+    <nav class="d-block">
+      <StepBar :current-step="2"></StepBar>
+      <StepList :current-step="2"></StepList>
+    </nav>
     <div class="">
       <draggable
         class="list-group"
