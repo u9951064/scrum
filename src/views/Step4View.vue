@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Role from "@/constants/Role";
 import { onMounted, ref, computed } from "vue";
 import draggable from "vuedraggable";
 import StepBar from "@/components/StepBar.vue";
