@@ -134,7 +134,7 @@ onMounted(() => {
                   class="row flex-column flex-md-row flex-nowrap flex-md-wrap"
                 >
                   <section class="col-12">
-                    <ChatBox :role="Role.GouMinEr" :flip="true" :logo="true">
+                    <ChatBox :role="Role.GouMinEr" :logo="true">
                       <div class="fz-14px">
                         請把需求放到產品待辦清單，並調整待辦的優先度順序。
                         我們公司也推薦使用 Jira 來做任務的管理呢！
