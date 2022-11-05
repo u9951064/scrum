@@ -85,8 +85,14 @@ const isActive = (stepIndex: number) => {
 </template>
 
 <style scoped>
+ul.step-list {
+  padding: 0;
+  min-width: 77px;
+}
+
 ul.step-list > li.step-list-item {
   list-style-type: none;
+  text-align: center;
   opacity: 0.3;
 }
 
@@ -96,5 +102,30 @@ ul.step-list > li.step-list-item.active {
 
 ul.step-list > li.step-list-item .plant-icon {
   list-style-type: none;
+}
+
+ul.step-list .line {
+  align-self: center;
+}
+
+ul.step-list .line::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 80%;
+  margin: auto;
+  background-color: #ffffff;
+}
+
+@media (max-width: 767.9px) {
+  ul.step-list .line {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  ul.step-list > li.step-list-item ~ li.step-list-item {
+    padding-top: 0.5rem;
+  }
 }
 </style>

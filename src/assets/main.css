@@ -1,35 +1,43 @@
-@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap');
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+  position   : fixed;
+  height     : 100%;
+  width      : 100%;
+  top        : 0;
+  bottom     : 0;
+  left       : 0;
+  right      : 0;
+  overflow   : hidden;
+  font-weight: 400;
+  font-family: 'Noto Sans TC', sans-serif;
+  color      : #FFFFFF;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+.fw-400 {
+  font-weight: 400;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.fw-600 {
+  font-weight: 600;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.c-black {
+  color: #000000;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.c-purple {
+  color: #00092B;
+}
+
+.fz-9px {
+  font-size: 9px;
+}
+
+.fz-14px {
+  font-size: 14px;
+}
+
+.bg-white {
+  background-color: #FFFFFF;
 }
