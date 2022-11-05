@@ -51,27 +51,41 @@ const remainderingPoint = computed(() => {
 });
 
 const checkAnswer = () => {
-  if (remainderingPoint.value >= 0 && backlogTarget.value.length > 0) {
-    return true;
+  if (remainderingPoint.value < 0) {
+    return false;
   }
-  return false;
+  if (backlogTarget.value.length === 0) {
+    return false;
+  }
+  return true;
 };
 
 const onEndEvent = () => {
-  if (remainderingPoint.value < 0 && backlogTarget.value.length > 0) {
-    // TODO: show alert
-    console.log("error");
-    return false;
+  if (remainderingPoint.value >= 0) {
+    return true;
   }
-  console.log("pass");
-  return true;
+
+  if (backlogTarget.value.length === 0) {
+    return true;
+  }
+
+  // TODO: show alert
+  console.log("error");
+  return false;
 };
 
 const checkAnswerOrGoNextPage = () => {
   let isCorrect = checkAnswer();
+
+  console.log({
+    1: remainderingPoint.value,
+    2: backlogTarget.value.length,
+    3: isCorrect,
+  });
   if (isCorrect) {
     router.replace({ name: "step5" });
   } else {
+    console.log("1111");
     // TODO: popup
   }
 };
@@ -245,7 +259,7 @@ onMounted(() => {
 
 .list-group {
   height: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #ffffff;
   border-radius: 0;
 }
 </style>

@@ -21,7 +21,7 @@ const props = defineProps({
     type: Boolean,
     required: false,
     default: false,
-  }
+  },
 });
 
 const roleClass = computed(() => {
@@ -39,14 +39,14 @@ const roleClass = computed(() => {
 </script>
 
 <template>
-  <div :class="roleClass" class="chat-box row">
+  <div :class="roleClass" class="chat-box row flex-nowrap">
     <div class="avatar col-auto">
       <GouMinErAvatar v-if="role === Role.GouMinEr"></GouMinErAvatar>
       <KaiXinGouAvatar v-else-if="role === Role.KaiXinGou"></KaiXinGouAvatar>
       <ShiTouShenAvatar v-else-if="role === Role.ShiTouShen"></ShiTouShenAvatar>
       <FaDaiCiaAvatar v-else-if="role === Role.FaDaCia"></FaDaiCiaAvatar>
     </div>
-    <div class="message col">
+    <div class="message col-auto">
       <div class="logo text-center p-2" v-if="logo">
         <JiraLogo></JiraLogo>
       </div>
@@ -58,7 +58,9 @@ const roleClass = computed(() => {
 <style scoped>
 .chat-box {
   width: 100%;
+  max-width: 100%;
   margin: auto;
+  overflow: hidden;
 }
 .chat-box ~ .chat-box {
   padding-top: 0.5rem;
@@ -75,6 +77,7 @@ const roleClass = computed(() => {
   border-radius: 0px 20px 20px 20px;
   overflow-x: hidden;
   padding: 0.5rem;
+  max-width: 75%;
 }
 
 .chat-box.flip > .message {
@@ -95,5 +98,17 @@ const roleClass = computed(() => {
 
 .chat-box.ShiTouShen > .message {
   border-color: #13d1ff;
+}
+
+@media (min-width: 768px) {
+  .chat-box > .message {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chat-box > .message {
+    max-width: 88%;
+  }
 }
 </style>
