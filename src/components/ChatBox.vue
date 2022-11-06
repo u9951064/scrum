@@ -77,7 +77,7 @@ const roleClass = computed(() => {
   border-radius: 0px 20px 20px 20px;
   overflow-x: hidden;
   padding: 0.5rem;
-  max-width: 75%;
+  max-width: 73%;
 }
 
 .chat-box.flip > .message {
