@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { onMounted, ref, computed } from "vue";
-import draggable from "vuedraggable";
+import NextStepBtn from "@/components/NextStepBtn.vue";
+import StarTitle from "@/components/StarTitle.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
-import NextStepBtn from "@/components/NextStepBtn.vue";
 import router from "@/router";
+import { computed, onMounted, ref } from "vue";
+import draggable from "vuedraggable";
 
 interface OptionRecord {
   title: string;
@@ -115,10 +116,14 @@ onMounted(() => {
                 >
                   <section class="col-12 text-center">
                     <div class="d-none d-md-block">
-                      請在點數限制內，把產品待辦清單任務，移至右側短衝清單中
+                      <StarTitle
+                        >請在點數限制內，把產品待辦清單任務，移至右側短衝清單中</StarTitle
+                      >
                     </div>
                     <div class="d-block d-md-none">
-                      請在點數限制內，把產品待辦清單任務，移動至下方短衝清單中
+                      <StarTitle
+                        >請在點數限制內，把產品待辦清單任務，移動至下方短衝清單中</StarTitle
+                      >
                     </div>
                     <div class="row flex-md-nowrap">
                       <div class="col-12 col-md-5 ms-auto">

@@ -16,6 +16,7 @@ defineEmits(["click"]);
 
 <style scoped>
 .next-btn {
+  margin-top: 0.5rem;
   padding: 1.125rem;
   border: 1px solid #ffffff;
   border-radius: 0.5rem;

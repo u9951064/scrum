@@ -94,6 +94,7 @@ ul.step-list > li.step-list-item {
   list-style-type: none;
   text-align: center;
   opacity: 0.3;
+  font-size: 9px;
 }
 
 ul.step-list > li.step-list-item.active {

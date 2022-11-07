@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import StarTitle from "@/components/StarTitle.vue";
 import Role from "@/constants/Role";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
@@ -37,9 +38,7 @@ const gotoNextPage = () => {
                         流程圖中，這些流程分別代表哪一個會議呢？
                       </div>
                     </ChatBox>
-                    <div class="text-center">
-                      拖移區塊，把對應流程貼到正確位置
-                    </div>
+                    <StarTitle>拖移區塊，把對應流程貼到正確位置</StarTitle>
                   </section>
                 </article>
               </div>

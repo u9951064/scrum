@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import Role from "@/constants/Role";
-import { onMounted, ref } from "vue";
-import draggable from "vuedraggable";
+import ChatBox from "@/components/ChatBox.vue";
+import NextStepBtn from "@/components/NextStepBtn.vue";
+import StarTitle from "@/components/StarTitle.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
-import NextStepBtn from "@/components/NextStepBtn.vue";
-import ChatBox from "@/components/ChatBox.vue";
+import Role from "@/constants/Role";
 import router from "@/router";
+import { onMounted, ref } from "vue";
+import draggable from "vuedraggable";
 
 interface OptionRecord {
   title: string;
@@ -143,7 +144,9 @@ onMounted(() => {
                   </section>
                   <section class="col-12 text-center">
                     <div class="d-block d-md-none" ref="mobileDetector">
-                      <div class="">拖移區塊，並調整待辦清單的優先度順序</div>
+                      <StarTitle
+                        >拖移區塊，並調整待辦清單的優先度順序</StarTitle
+                      >
                       <div class="row">
                         <div class="col-auto text-center">
                           <div
@@ -184,9 +187,9 @@ onMounted(() => {
                       </div>
                     </div>
                     <div class="d-none d-md-block">
-                      <div class="">
+                      <StarTitle>
                         拖移左側區塊，移至右側待辦清單，並調整優先度順序
-                      </div>
+                      </StarTitle>
                       <div class="row flex-nowrap">
                         <div class="col-6">
                           <div class="row h-100">

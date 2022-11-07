@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import ConfluenceLogo from "@/components/images/ConfluenceLogo.vue";
 import ChatBox from "@/components/ChatBox.vue";
+import ConfluenceLogo from "@/components/images/ConfluenceLogo.vue";
 import NextStepBtn from "@/components/NextStepBtn.vue";
+import StarTitle from "@/components/StarTitle.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
 import Role from "@/constants/Role";
@@ -89,9 +90,9 @@ const checkAnswerOrGoNextPage = () => {
                         的回饋吧～～
                       </div>
                     </ChatBox>
-                    <div class="text-center">
-                      思考看看，哪些回答是適合 Retro 的回饋並打勾
-                    </div>
+                    <StarTitle
+                      >思考看看，哪些回答是適合 Retro 的回饋並打勾</StarTitle
+                    >
                     <div class="row">
                       <div class="col-12 col-md-6">
                         <div class="list-block">
@@ -200,16 +201,12 @@ const checkAnswerOrGoNextPage = () => {
 }
 
 .list-block {
-  border: 2px solid #FFF;
+  border: 2px solid #fff;
 }
 
 .list-item ~ .list-item {
-  border-top: 2px solid #FFF;
+  border-top: 2px solid #fff;
 }
-
-/* .list-item input[type="checkbox"] {
-  visibility: hidden;
-} */
 
 @media (max-width: 767.9px) {
   .hidden-nav {
