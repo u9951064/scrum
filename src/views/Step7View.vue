@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import IconChecked from "@/components/icons/IconChecked.vue";
+import IconUnchecked from "@/components/icons/IconUncheck.vue";
 import ChatBox from "@/components/ChatBox.vue";
+import CheckBox from "@/components/CheckBox.vue";
 import ConfluenceLogo from "@/components/images/ConfluenceLogo.vue";
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import StarTitle from "@/components/StarTitle.vue";
@@ -7,9 +10,9 @@ import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
 import Role from "@/constants/Role";
 import router from "@/router";
-import { ref } from "vue";
+import { reactive } from "vue";
 
-const goodJobList = ref([
+const goodJobList = reactive([
   {
     label: "這次我幫了很多人救火耶！",
     checked: false,
@@ -22,7 +25,7 @@ const goodJobList = ref([
   },
 ]);
 
-const improveList = ref([
+const improveList = reactive([
   {
     label: "可以記錄這次的開發時間，讓預估團隊點數可以更精準。",
     checked: false,
@@ -37,10 +40,10 @@ const improveList = ref([
 
 const checkAnswer = (): boolean => {
   let isCorrectly = true;
-  for (const goodJob of goodJobList.value) {
+  for (const goodJob of goodJobList) {
     isCorrectly = isCorrectly && goodJob.checked == goodJob.correctly;
   }
-  for (const improvement of improveList.value) {
+  for (const improvement of improveList) {
     isCorrectly = isCorrectly && improvement.checked == improvement.correctly;
   }
   return isCorrectly;
@@ -107,11 +110,10 @@ const checkAnswerOrGoNextPage = () => {
                             :key="index"
                           >
                             <div class="col-auto">
-                              <input
-                                type="checkbox"
+                              <CheckBox
                                 v-model="item.checked"
-                                :id="`goodJobList-${index}`"
-                              />
+                                :model-id="`goodJobList-${index}`"
+                              ></CheckBox>
                             </div>
                             <label
                               class="col"
@@ -134,11 +136,10 @@ const checkAnswerOrGoNextPage = () => {
                             :key="index"
                           >
                             <div class="col-auto">
-                              <input
-                                type="checkbox"
+                              <CheckBox
                                 v-model="item.checked"
-                                :id="`improveList-${index}`"
-                              />
+                                :model-id="`improveList-${index}`"
+                              ></CheckBox>
                             </div>
                             <label
                               class="col"
