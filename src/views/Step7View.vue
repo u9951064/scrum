@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import IconChecked from "@/components/icons/IconChecked.vue";
-import IconUnchecked from "@/components/icons/IconUncheck.vue";
 import ChatBox from "@/components/ChatBox.vue";
 import CheckBox from "@/components/CheckBox.vue";
 import ConfluenceLogo from "@/components/images/ConfluenceLogo.vue";
@@ -11,6 +9,12 @@ import StepList from "@/components/StepList.vue";
 import Role from "@/constants/Role";
 import router from "@/router";
 import { reactive } from "vue";
+import {
+  useStore as usePopupStore,
+  type PopupShow,
+} from "../store/popupMessage";
+
+const popupStore = usePopupStore();
 
 const goodJobList = reactive([
   {
@@ -53,7 +57,12 @@ const checkAnswerOrGoNextPage = () => {
   if (checkAnswer()) {
     router.replace({ name: "finish" });
   } else {
-    // TODO: popup
+    popupStore.dispatch("show", {
+      title: "回饋錯誤",
+      message: "打勾處好像不是 Retro 會有的回饋耶",
+      btnLabel: "再試一次",
+      icon: "error",
+    } as PopupShow);
   }
 };
 </script>

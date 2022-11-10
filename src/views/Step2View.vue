@@ -8,6 +8,12 @@ import Role from "@/constants/Role";
 import router from "@/router";
 import { onMounted, ref } from "vue";
 import draggable from "vuedraggable";
+import {
+  useStore as usePopupStore,
+  type PopupShow,
+} from "../store/popupMessage";
+
+const popupStore = usePopupStore();
 
 interface OptionRecord {
   title: string;
@@ -24,6 +30,8 @@ const isMobile = () => {
     mobileDetector.value.getClientRects().length
   );
 };
+
+const isAllowChange = ref(true);
 
 const backlogPrioritiesForMobile = ref([
   { title: "會員系統", description: "（登入、註冊、權理管理）", priority: 1 },
@@ -91,6 +99,10 @@ const checkDesktopAnswer = () => {
   return false;
 };
 
+const gotoNextPage = () => {
+  router.replace({ name: "step3" });
+};
+
 const checkAnswerOrGoNextPage = () => {
   let isCorrect = false;
   if (isMobile()) {
@@ -99,9 +111,27 @@ const checkAnswerOrGoNextPage = () => {
     isCorrect = checkDesktopAnswer();
   }
   if (isCorrect) {
-    router.replace({ name: "step3" });
+    if (isAllowChange.value) {
+      popupStore.dispatch("show", {
+        icon: "success",
+        title: "排序正確",
+        message: "",
+        btnLabel: "繼續",
+        btnCB: gotoNextPage,
+      } as PopupShow);
+    } else {
+      gotoNextPage();
+    }
   } else {
-    // TODO: popup
+    popupStore.dispatch("show", {
+      icon: "error",
+      title: "順序錯誤",
+      message: "產品待辦清單的順序錯囉，讓 果敏兒 幫你排完正確的順序吧！",
+      btnLabel: "OK",
+      btnCB: () => {
+        isAllowChange.value = false;
+      },
+    } as PopupShow);
   }
 };
 
@@ -163,6 +193,7 @@ onMounted(() => {
                         <div class="col">
                           <draggable
                             class="list-group"
+                            :disabled="!isAllowChange"
                             :list="backlogPrioritiesForMobile"
                             group="mobileList"
                             itemKey="priority"
@@ -196,6 +227,7 @@ onMounted(() => {
                             <div class="col">
                               <draggable
                                 class="list-group"
+                                :disabled="!isAllowChange"
                                 :list="backlogPrioritiesForDesktop"
                                 group="desktopList"
                                 itemKey="priority"
@@ -233,6 +265,7 @@ onMounted(() => {
                             <div class="col">
                               <draggable
                                 class="list-group"
+                                :disabled="!isAllowChange"
                                 :list="backlogPrioritiesForDesktopTarget"
                                 group="desktopList"
                                 itemKey="priority"

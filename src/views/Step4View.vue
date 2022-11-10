@@ -6,6 +6,10 @@ import StepList from "@/components/StepList.vue";
 import router from "@/router";
 import { computed, onMounted, ref } from "vue";
 import draggable from "vuedraggable";
+import {
+  useStore as usePopupStore,
+  type PopupShow,
+} from "../store/popupMessage";
 
 interface OptionRecord {
   title: string;
@@ -13,6 +17,8 @@ interface OptionRecord {
   point: number;
   key: number;
 }
+
+const popupStore = usePopupStore();
 
 const backlogSource = ref([
   {
@@ -52,41 +58,51 @@ const remainderingPoint = computed(() => {
 
 const checkAnswer = () => {
   if (remainderingPoint.value < 0) {
-    return false;
+    return "overflow";
   }
   if (backlogTarget.value.length === 0) {
-    return false;
+    return "empty";
   }
-  return true;
+  return "pass";
 };
 
 const onEndEvent = () => {
-  if (remainderingPoint.value >= 0) {
+  const checkedResult = checkAnswer();
+  if (checkedResult !== "overflow") {
     return true;
   }
+  popupStore.dispatch("show", {
+    title: "點數過多",
+    message: "塞太多任務啦！<br/>這個 Sprint 只有 20 點喔！",
+    icon: "error",
+    btnLabel: "再試一次",
+  } as PopupShow);
 
-  if (backlogTarget.value.length === 0) {
-    return true;
-  }
-
-  // TODO: show alert
-  console.log("error");
   return false;
 };
 
 const checkAnswerOrGoNextPage = () => {
-  let isCorrect = checkAnswer();
-
-  console.log({
-    1: remainderingPoint.value,
-    2: backlogTarget.value.length,
-    3: isCorrect,
-  });
-  if (isCorrect) {
-    router.replace({ name: "step5" });
-  } else {
-    console.log("1111");
-    // TODO: popup
+  const checkedResult = checkAnswer();
+  switch (checkedResult) {
+    case "pass":
+      router.replace({ name: "step5" });
+      break;
+    case "overflow":
+      popupStore.dispatch("show", {
+        title: "點數過多",
+        message: "塞太多任務啦！<br/>這個 Sprint 只有 20 點喔！",
+        icon: "error",
+        btnLabel: "再試一次",
+      } as PopupShow);
+      break;
+    case "empty":
+    default:
+      popupStore.dispatch("show", {
+        title: "這個 Sprint 還有 20 點喔！",
+        message: "請在點數限制內安排任務到短衝清單中。",
+        icon: "error",
+        btnLabel: "再試一次",
+      } as PopupShow);
   }
 };
 
