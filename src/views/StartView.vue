@@ -29,7 +29,6 @@ const gotoNextPage = () => {
   width: 100%;
   height: 100%;
   padding-bottom: 8%;
-  background: linear-gradient(180deg, #4a289c 0%, #00092b 100%);
 }
 
 .start-page > .main-content-block {

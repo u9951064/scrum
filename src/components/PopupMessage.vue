@@ -26,7 +26,11 @@ const popupStore = usePopupStore();
         v-if="popupStore.getters.hasTitle"
         v-text="popupStore.state.title"
       ></div>
-      <div class="message" v-if="popupStore.getters.hasMessage" v-html="popupStore.state.message"></div>
+      <div
+        class="message"
+        v-if="popupStore.getters.hasMessage"
+        v-html="popupStore.state.message"
+      ></div>
       <button
         type="button"
         v-text="popupStore.state.btnLabel"
