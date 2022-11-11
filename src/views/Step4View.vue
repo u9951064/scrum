@@ -164,13 +164,18 @@ onMounted(() => {
                                     v-text="element.point"
                                   ></div>
                                   <div
-                                    class="title"
-                                    v-text="element.title"
-                                  ></div>
-                                  <div
-                                    class="description"
-                                    v-text="element.description || '&nbsp;'"
-                                  ></div>
+                                    class="row flex-column justify-content-center h-100"
+                                  >
+                                    <div
+                                      class="title"
+                                      v-text="element.title"
+                                    ></div>
+                                    <div
+                                      class="description"
+                                      v-if="element.description.length > 0"
+                                      v-text="element.description"
+                                    ></div>
+                                  </div>
                                 </div>
                               </template>
                             </draggable>
@@ -199,13 +204,18 @@ onMounted(() => {
                                     v-text="element.point"
                                   ></div>
                                   <div
-                                    class="title"
-                                    v-text="element.title"
-                                  ></div>
-                                  <div
-                                    class="description"
-                                    v-text="element.description || '&nbsp;'"
-                                  ></div>
+                                    class="row flex-column justify-content-center h-100"
+                                  >
+                                    <div
+                                      class="title"
+                                      v-text="element.title"
+                                    ></div>
+                                    <div
+                                      class="description"
+                                      v-if="element.description.length > 0"
+                                      v-text="element.description"
+                                    ></div>
+                                  </div>
                                 </div>
                               </template>
                             </draggable>
@@ -280,5 +290,26 @@ onMounted(() => {
   height: 100%;
   border: 2px solid #ffffff;
   border-radius: 0;
+}
+
+.point {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-weight: 600;
+  color: #00092b;
+  background-color: #0defb5;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  padding: 0.3rem;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.list-group-item {
+  min-height: 4rem;
 }
 </style>

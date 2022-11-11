@@ -59,57 +59,49 @@ const getLabel = (stepIndex: number): string => {
       <div class="plant-icon col-12 col-md-auto">
         <IconPlant1></IconPlant1>
       </div>
-      <div class="line col-12 col-md" :class="{ 'show-line': isCurrent(1) }"></div>
-      <div class="index col-12 col-md-auto" v-text="getLabel(1)"></div>
+      <div class="index col-12 col-md" v-text="getLabel(1)"></div>
     </li>
     <li class="step-list-item col row g-0" :class="{ active: isActive(2) }">
       <div class="plant-icon col-12 col-md-auto">
         <IconPlant2></IconPlant2>
       </div>
-      <div class="line col-12 col-md" :class="{ 'show-line': isCurrent(2) }"></div>
-      <div class="index col-12 col-md-auto" v-text="getLabel(2)"></div>
+      <div class="index col-12 col-md" v-text="getLabel(2)"></div>
     </li>
     <li class="step-list-item col row g-0" :class="{ active: isActive(3) }">
       <div class="plant-icon col-12 col-md-auto">
         <IconPlant3></IconPlant3>
       </div>
-      <div class="line col-12 col-md" :class="{ 'show-line': isCurrent(3) }"></div>
-      <div class="index col-12 col-md-auto" v-text="getLabel(3)"></div>
+      <div class="index col-12 col-md" v-text="getLabel(3)"></div>
     </li>
     <li class="step-list-item col row g-0" :class="{ active: isActive(4) }">
       <div class="plant-icon col-12 col-md-auto">
         <IconPlant4></IconPlant4>
       </div>
-      <div class="line col-12 col-md" :class="{ 'show-line': isCurrent(4) }"></div>
-      <div class="index col-12 col-md-auto" v-text="getLabel(4)"></div>
+      <div class="index col-12 col-md" v-text="getLabel(4)"></div>
     </li>
     <li class="step-list-item col row g-0" :class="{ active: isActive(5) }">
       <div class="plant-icon col-12 col-md-auto">
         <IconPlant5></IconPlant5>
       </div>
-      <div class="line col-12 col-md" :class="{ 'show-line': isCurrent(5) }"></div>
-      <div class="index col-12 col-md-auto" v-text="getLabel(5)"></div>
+      <div class="index col-12 col-md" v-text="getLabel(5)"></div>
     </li>
     <li class="step-list-item col row g-0" :class="{ active: isActive(6) }">
       <div class="plant-icon col-12 col-md-auto">
         <IconPlant6></IconPlant6>
       </div>
-      <div class="line col-12 col-md" :class="{ 'show-line': isCurrent(6) }"></div>
-      <div class="index col-12 col-md-auto" v-text="getLabel(6)"></div>
+      <div class="index col-12 col-md" v-text="getLabel(6)"></div>
     </li>
     <li class="step-list-item col row g-0" :class="{ active: isActive(7) }">
       <div class="plant-icon col-12 col-md-auto">
         <IconPlant7></IconPlant7>
       </div>
-      <div class="line col-12 col-md" :class="{ 'show-line': isCurrent(7) }"></div>
-      <div class="index col-12 col-md-auto" v-text="getLabel(7)"></div>
+      <div class="index col-12 col-md" v-text="getLabel(7)"></div>
     </li>
     <li class="step-list-item col row g-0" :class="{ active: isActive(8) }">
       <div class="plant-icon col-12 col-md-auto">
         <IconPlant8></IconPlant8>
       </div>
-      <div class="line col-12 col-md" :class="{ 'show-line': isCurrent(8) }"></div>
-      <div class="index col-12 col-md-auto" v-text="getLabel(8)"></div>
+      <div class="index col-12 col-md" v-text="getLabel(8)"></div>
     </li>
   </ul>
 </template>
@@ -131,30 +123,18 @@ ul.step-list > li.step-list-item.active {
   opacity: 1;
 }
 
-ul.step-list .line,
 ul.step-list .index,
 ul.step-list .plant-icon {
   align-self: center;
 }
 
-ul.step-list .line:not(.show-line)::after {
-  content: "";
-  display: block;
-  height: 1px;
-  width: 80%;
-  margin: auto;
-  background-color: #ffffff;
-}
-
-@media (max-width: 767.9px) {
-  ul.step-list .line {
-    display: none;
-  }
-}
-
 @media (min-width: 768px) {
   ul.step-list > li.step-list-item ~ li.step-list-item {
     padding-top: 0.5rem;
+  }
+  ul.step-list .index {
+    padding-left: 0.375rem;
+    text-align: left;
   }
 }
 </style>

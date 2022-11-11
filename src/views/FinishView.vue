@@ -28,8 +28,8 @@ const gotoNextPage = () => {
           <div class="col overflow-auto">
             <div class="row flex-column flex-nowrap">
               <div class="col main-operation-block p-md-5 text-center">
-                恭喜通過 Scrum 新手村任務！<br/>
-正式加入敏捷宇宙，開始從 敏捷星 鍛鍊吧
+                恭喜通過 Scrum 新手村任務！<br />
+                正式加入敏捷宇宙，開始從 敏捷星 鍛鍊吧
               </div>
             </div>
             <div class="col-auto text-center">
