@@ -7,7 +7,7 @@ import ChatBox from "@/components/ChatBox.vue";
 import router from "@/router";
 
 const gotoNextPage = () => {
-  router.replace({ name: "step4" });
+  router.push({ name: "step4" });
 };
 </script>
 

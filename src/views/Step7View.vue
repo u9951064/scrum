@@ -55,7 +55,7 @@ const checkAnswer = (): boolean => {
 
 const checkAnswerOrGoNextPage = () => {
   if (checkAnswer()) {
-    router.replace({ name: "finish" });
+    router.push({ name: "finish" });
   } else {
     popupStore.dispatch("show", {
       title: "回饋錯誤",

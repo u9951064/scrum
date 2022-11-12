@@ -1,14 +1,19 @@
 <script setup lang="ts">
-import ConfluenceLogo from "@/components/images/ConfluenceLogo.vue";
-import ChatBox from "@/components/ChatBox.vue";
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
-import Role from "@/constants/Role";
-import router from "@/router";
 
-const gotoNextPage = () => {
-  router.replace({ name: "start" });
+const shareLink = () => {
+  const url = window.location.href.replace(/#[\w\W]+$/, "");
+  if (navigator.share) {
+    navigator.share({
+      title: "Scrum Planet",
+      text: "一起來學習 Scrum",
+      url,
+    });
+  } else {
+    // TODO: not support share api
+  }
 };
 </script>
 
@@ -29,13 +34,13 @@ const gotoNextPage = () => {
             <div class="row flex-column flex-nowrap">
               <div class="col main-operation-block p-md-5 text-center">
                 恭喜通過 Scrum 新手村任務！<br />
-                正式加入敏捷宇宙，開始從 敏捷星 鍛鍊吧
+                正式加入敏捷宇宙，點擊上方小星球，自由探索 Scrum 精神吧！
               </div>
             </div>
             <div class="col-auto text-center">
               <NextStepBtn
-                btn-label="重新挑戰"
-                @click="gotoNextPage"
+                btn-label="分享連結"
+                @click="shareLink()"
               ></NextStepBtn>
             </div>
           </div>

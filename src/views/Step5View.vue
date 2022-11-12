@@ -10,7 +10,7 @@ import ScrumEventComponent from "@/components/ScrumEvent.vue";
 import router from "@/router";
 
 const gotoNextPage = () => {
-  router.replace({ name: "step6" });
+  router.push({ name: "step6" });
 };
 </script>
 

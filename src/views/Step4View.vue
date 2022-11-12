@@ -85,7 +85,7 @@ const checkAnswerOrGoNextPage = () => {
   const checkedResult = checkAnswer();
   switch (checkedResult) {
     case "pass":
-      router.replace({ name: "step5" });
+      router.push({ name: "step5" });
       break;
     case "overflow":
       popupStore.dispatch("show", {
@@ -98,8 +98,8 @@ const checkAnswerOrGoNextPage = () => {
     case "empty":
     default:
       popupStore.dispatch("show", {
-        title: "這個 Sprint 還有 20 點喔！",
-        message: "請在點數限制內安排任務到短衝清單中。",
+        title: "沒有任務",
+        message: "沒有任務在短衝待辦清單耶，這個 Sprint 有 20 點 Sprint point 可消耗喔",
         icon: "error",
         btnLabel: "再試一次",
       } as PopupShow);
@@ -158,7 +158,7 @@ onMounted(() => {
                                 </div>
                               </template>
                               <template #item="{ element }">
-                                <div class="list-group-item p-relative">
+                                <div class="list-group-item position-relative">
                                   <div
                                     class="point"
                                     v-text="element.point"
@@ -198,7 +198,7 @@ onMounted(() => {
                                 </div>
                               </template>
                               <template #item="{ element }">
-                                <div class="list-group-item p-relative">
+                                <div class="list-group-item position-relative">
                                   <div
                                     class="point"
                                     v-text="element.point"

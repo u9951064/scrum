@@ -6,7 +6,7 @@ import NextStepBtn from "@/components/NextStepBtn.vue";
 import router from "@/router";
 
 const gotoNextPage = () => {
-  router.replace({ name: "step2" });
+  router.push({ name: "step2" });
 };
 </script>
 
