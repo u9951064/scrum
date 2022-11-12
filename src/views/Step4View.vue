@@ -99,7 +99,8 @@ const checkAnswerOrGoNextPage = () => {
     default:
       popupStore.dispatch("show", {
         title: "沒有任務",
-        message: "沒有任務在短衝待辦清單耶，這個 Sprint 有 20 點 Sprint point 可消耗喔",
+        message:
+          "沒有任務在短衝待辦清單耶，這個 Sprint 有 20 點 Sprint point 可消耗喔",
         icon: "error",
         btnLabel: "再試一次",
       } as PopupShow);

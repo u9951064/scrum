@@ -19,10 +19,6 @@ const isActive = (stepIndex: number) => {
   return stepIndex <= props.currentStep;
 };
 
-const isCurrent = (stepIndex: number) => {
-  return stepIndex == props.currentStep;
-};
-
 const getLabel = (stepIndex: number): string => {
   if (stepIndex !== props.currentStep) {
     return `${stepIndex}`;

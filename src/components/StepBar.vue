@@ -43,8 +43,6 @@ const stepRatio = computed(() => {
   animation: gradient 1.5s ease infinite;
 }
 
-
-
 @keyframes gradient {
   0% {
     background-position: 200% 0;

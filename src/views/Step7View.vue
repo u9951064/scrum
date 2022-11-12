@@ -65,6 +65,22 @@ const checkAnswerOrGoNextPage = () => {
     } as PopupShow);
   }
 };
+
+const setGoodJobListUnique = (index: number) => {
+  goodJobList.forEach((el, i) => {
+    if(i !== index) {
+      el.checked = false;
+    }
+  });
+};
+
+const setImproveListUnique = (index: number) => {
+  improveList.forEach((el, i) => {
+    if(i !== index) {
+      el.checked = false;
+    }
+  });
+};
 </script>
 
 <template>
@@ -122,6 +138,7 @@ const checkAnswerOrGoNextPage = () => {
                               <CheckBox
                                 v-model="item.checked"
                                 :model-id="`goodJobList-${index}`"
+                                @input="setGoodJobListUnique(index)"
                               ></CheckBox>
                             </div>
                             <label
@@ -148,6 +165,7 @@ const checkAnswerOrGoNextPage = () => {
                               <CheckBox
                                 v-model="item.checked"
                                 :model-id="`improveList-${index}`"
+                                @input="setImproveListUnique(index)"
                               ></CheckBox>
                             </div>
                             <label
