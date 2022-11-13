@@ -68,7 +68,7 @@ const checkAnswerOrGoNextPage = () => {
 
 const setGoodJobListUnique = (index: number) => {
   goodJobList.forEach((el, i) => {
-    if(i !== index) {
+    if (i !== index) {
       el.checked = false;
     }
   });
@@ -76,7 +76,7 @@ const setGoodJobListUnique = (index: number) => {
 
 const setImproveListUnique = (index: number) => {
   improveList.forEach((el, i) => {
-    if(i !== index) {
+    if (i !== index) {
       el.checked = false;
     }
   });
@@ -217,9 +217,11 @@ const setImproveListUnique = (index: number) => {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 .list-block {
   margin-top: 20px;
 }
+
 .list-item {
   width: 100%;
   align-items: center;

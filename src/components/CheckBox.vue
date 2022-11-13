@@ -28,5 +28,4 @@ const emit = defineEmits(["update:modelValue"]);
   </label>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
