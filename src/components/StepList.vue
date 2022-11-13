@@ -130,7 +130,6 @@ ul.step-list .plant-icon {
   }
   ul.step-list .index {
     padding-left: 0.375rem;
-    text-align: left;
   }
 }
 </style>

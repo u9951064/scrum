@@ -57,8 +57,9 @@ const popupStore = usePopupStore();
   padding-left: 2rem;
   padding-right: 2rem;
   background: rgba(255, 255, 255, 0.8);
-  border: 2px solid #ff4069;
   border-radius: 20px;
+  border-width: 2px;
+  border-style: solid;
   text-align: center;
   margin: auto;
   width: 80vw;
@@ -119,7 +120,13 @@ const popupStore = usePopupStore();
   font-weight: 400;
   font-size: 0.875rem;
 }
+.popup-error > .popup-msg-block {
+  border-color: #ff4069;
+}
 
+.popup-success > .popup-msg-block {
+  border-color: #0defb5;
+}
 .popup-error > .popup-msg-block > button {
   color: #ffffff;
   background: #ff4069;

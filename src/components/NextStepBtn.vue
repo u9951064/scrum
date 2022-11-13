@@ -26,12 +26,12 @@ defineEmits(["click"]);
 }
 
 .next-btn {
-  margin-top: 0.5rem;
+  margin: 0.75rem auto 1rem;
   padding: 1.125rem;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 1rem;
-  background: #00092BDD;
-  color: #FFFFFF;
+  background: #00092bdd;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.5rem;

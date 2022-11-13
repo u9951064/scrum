@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import ConfluenceLogo from "@/components/images/ConfluenceLogo.vue";
-import Role from "@/constants/Role";
-import ScrumEvent from "@/constants/ScrumEvent";
+import ChatBox from "@/components/ChatBox.vue";
+import NextStepBtn from "@/components/NextStepBtn.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
-import NextStepBtn from "@/components/NextStepBtn.vue";
-import ChatBox from "@/components/ChatBox.vue";
-import ScrumEventComponent from "@/components/ScrumEvent.vue";
+import Role from "@/constants/Role";
 import router from "@/router";
 
 const gotoNextPage = () => {
@@ -54,36 +51,46 @@ const gotoNextPage = () => {
                         (Sprint Review)、短衝自省會議(Sprint Retrospective)。
                       </div>
                     </ChatBox>
-                    <div class="row align-content-stretch">
-                      <ScrumEventComponent :event="ScrumEvent.DailyScrum">
-                        <div class="">每天都要進行的會議，以 15 分鐘為限制</div>
-                        <div class="">
-                          每天為團隊的短衝目標 (Sprint Goal) 做了哪些進度
-                        </div>
-                        <div class="">
-                          今天我會如何準備來幫助團隊達成短衝目標
-                        </div>
-                        <div class="">過程中有遇到什麼問題、難題</div>
-                        <div class="">透過團隊分享，追蹤大家的工作狀況</div>
-                      </ScrumEventComponent>
-                      <ScrumEventComponent :event="ScrumEvent.SprintReview"
-                        ><div>
-                          用來檢視該次短衝增量的成果，以蒐集相關的回饋數據或意見
-                        </div></ScrumEventComponent
-                      >
-                      <ScrumEventComponent
-                        :event="ScrumEvent.SprintRetrospective"
-                        ><div>
-                          團隊在自省會議裡，會共同回顧該短衝歷程發生的事情
-                        </div>
-                        <div>好的地方</div>
-                        <div>可以改進的地方</div>
-                        <div>如何維持我們已有的成功經驗</div>
-                        <div>優化工作流程、讓團隊有變得更好的機會</div>
-                        <div>
-                          推薦工具：Confluence <ConfluenceLogo></ConfluenceLogo>
-                        </div>
-                      </ScrumEventComponent>
+                    <div class="row pt-md-3">
+                      <div class="col-12 col-md-4">
+                        <picture>
+                          <source
+                            srcset="../assets/step5/IntroDailyScrumDesktop.svg"
+                            media="(min-width: 768px)"
+                          />
+                          <img
+                            class="w-100"
+                            src="../assets/step5/IntroDailyScrumMobile.svg"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <div class="col-12 col-md-4">
+                        <picture>
+                          <source
+                            srcset="../assets/step5/IntroScrumReviewDesktop.svg"
+                            media="(min-width: 768px)"
+                          />
+                          <img
+                            class="w-100"
+                            src="../assets/step5/IntroScrumReviewMobile.svg"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <div class="col-12 col-md-4">
+                        <picture>
+                          <source
+                            srcset="../assets/step5/IntroScrumRetroDesktop.svg"
+                            media="(min-width: 768px)"
+                          />
+                          <img
+                            class="w-100"
+                            src="../assets/step5/IntroScrumRetroMobile.svg"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
                     </div>
                   </section>
                 </article>
