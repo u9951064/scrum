@@ -182,10 +182,10 @@ onMounted(() => {
                           <div
                             class="h-100 row flex-column flex-nowrap justify-content-between pt-5"
                           >
-                            <div class="col-auto">
+                            <div class="col-auto priority-label">
                               優<br />先<br />度<br />高
                             </div>
-                            <div class="col-auto">
+                            <div class="col-auto priority-label">
                               優<br />先<br />度<br />低
                             </div>
                           </div>
@@ -240,7 +240,8 @@ onMounted(() => {
                                     ></div>
                                     <div
                                       class="description"
-                                      v-text="element.description || '&nbsp;'"
+                                      v-if="element.description"
+                                      v-text="element.description"
                                     ></div>
                                   </div>
                                 </template>
@@ -254,17 +255,17 @@ onMounted(() => {
                               <div
                                 class="h-100 row flex-column flex-nowrap justify-content-between pt-5"
                               >
-                                <div class="col-auto">
+                                <div class="col-auto priority-label">
                                   優<br />先<br />度<br />高
                                 </div>
-                                <div class="col-auto">
+                                <div class="col-auto priority-label">
                                   優<br />先<br />度<br />低
                                 </div>
                               </div>
                             </div>
                             <div class="col">
                               <draggable
-                                class="list-group"
+                                class="list-group list-target"
                                 :disabled="!isAllowChange"
                                 :list="backlogPrioritiesForDesktopTarget"
                                 group="desktopList"
@@ -283,7 +284,8 @@ onMounted(() => {
                                     ></div>
                                     <div
                                       class="description"
-                                      v-text="element.description || '&nbsp;'"
+                                      v-if="element.description"
+                                      v-text="element.description"
                                     ></div>
                                   </div>
                                 </template>
@@ -335,9 +337,40 @@ onMounted(() => {
   overflow-y: auto;
 }
 
+.priority-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0defb5;
+}
+
+.list-group {
+  border-radius: 0;
+}
+
+.list-group .list-group-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 4rem;
+  font-size: 14px;
+}
+
 @media (max-width: 767.9px) {
   .hidden-nav {
     display: none;
+  }
+
+  .list-group {
+    border: 3px solid #ffffff;
+  }
+
+  .list-group .list-group-item {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
+
+  .list-group .list-group-item ~ .list-group-item {
+    border-top: 3px solid #ffffff;
   }
 }
 
@@ -354,6 +387,32 @@ onMounted(() => {
 
   .hidden-nav {
     visibility: hidden;
+  }
+
+  .list-group {
+    height: 100%;
+    min-height: 35vh;
+  }
+
+  .list-target {
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid #ffffff;
+  }
+
+  .list-target .list-group-item {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-bottom: 3px solid #ffffff;
+  }
+
+  .list-group:not(.list-target) .list-group-item {
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid #ffffff;
+    color: #ffffff;
+  }
+
+  .list-group:not(.list-target) .list-group-item + .list-group-item {
+    margin-top: 0.9rem;
   }
 }
 </style>
