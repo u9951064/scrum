@@ -51,8 +51,8 @@ const gotoNextPage = () => {
                         (Sprint Review)、短衝自省會議(Sprint Retrospective)。
                       </div>
                     </ChatBox>
-                    <div class="row pt-md-3">
-                      <div class="col-12 col-md-4">
+                    <div class="row">
+                      <div class="col-12 col-md-4 pt-3">
                         <picture>
                           <source
                             srcset="../assets/step5/IntroDailyScrumDesktop.svg"
@@ -65,7 +65,7 @@ const gotoNextPage = () => {
                           />
                         </picture>
                       </div>
-                      <div class="col-12 col-md-4">
+                      <div class="col-12 col-md-4 pt-3">
                         <picture>
                           <source
                             srcset="../assets/step5/IntroScrumReviewDesktop.svg"
@@ -78,7 +78,7 @@ const gotoNextPage = () => {
                           />
                         </picture>
                       </div>
-                      <div class="col-12 col-md-4">
+                      <div class="col-12 col-md-4 pt-3">
                         <picture>
                           <source
                             srcset="../assets/step5/IntroScrumRetroDesktop.svg"

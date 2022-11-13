@@ -10,6 +10,8 @@ import {
   useStore as usePopupStore,
   type PopupShow,
 } from "../store/popupMessage";
+import IconDownArrow from "@/components/icons/IconDownArrow.vue";
+import IconRightArrow from "@/components/icons/IconRrightArrow.vue";
 
 interface OptionRecord {
   title: string;
@@ -99,8 +101,7 @@ const checkAnswerOrGoNextPage = () => {
     default:
       popupStore.dispatch("show", {
         title: "沒有任務",
-        message:
-          "沒有任務在短衝待辦清單耶，這個 Sprint 有 20 點 Sprint point 可消耗喔",
+        message: "沒有任務在短衝待辦清單耶，這個 Sprint 有 20 點可消耗喔",
         icon: "error",
         btnLabel: "再試一次",
       } as PopupShow);
@@ -142,7 +143,7 @@ onMounted(() => {
                         >請在點數限制內，把產品待辦清單任務，移動至下方短衝清單中</StarTitle
                       >
                     </div>
-                    <div class="row flex-md-nowrap">
+                    <div class="row flex-md-nowrap pt-2 pt-md-5">
                       <div class="col-12 col-md-5 ms-auto">
                         <div class="row h-100">
                           <div class="col">
@@ -183,8 +184,24 @@ onMounted(() => {
                           </div>
                         </div>
                       </div>
-                      <div class="col-12 col-md-1"></div>
-                      <div class="col-12 col-md-5 me-auto">
+                      <div class="col-12 col-md-1">
+                        <div
+                          class="row flex-column justify-content-center h-100"
+                        >
+                          <div class="col-auto p-2">
+                            <IconRightArrow
+                              class="d-none d-md-inline-block"
+                            ></IconRightArrow>
+                            <IconDownArrow
+                              class="d-inline-block d-md-none"
+                            ></IconDownArrow>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-5 me-auto position-relative">
+                        <div class="point-item">
+                          {{ remainderingPoint }}點/5人
+                        </div>
                         <div class="row h-100">
                           <div class="col-12">
                             <draggable
@@ -289,6 +306,7 @@ onMounted(() => {
 
 .list-group {
   height: 100%;
+  min-height: 9rem;
   border: 2px solid #ffffff;
   border-radius: 0;
 }
@@ -312,5 +330,18 @@ onMounted(() => {
 
 .list-group-item {
   min-height: 4rem;
+}
+
+.point-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #0defb5;
+  border-radius: 6px;
+  width: auto;
+  font-weight: 600;
+  font-size: 9px;
+  position: absolute;
+  right: 0.75rem;
+  margin-top: -2.1rem;
+  padding: 5px 10px;
 }
 </style>
