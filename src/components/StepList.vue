@@ -106,6 +106,7 @@ const getLabel = (stepIndex: number): string => {
 ul.step-list {
   padding: 0;
   min-width: 77px;
+  margin: 0 0 0.5rem 0;
 }
 
 ul.step-list > li.step-list-item {

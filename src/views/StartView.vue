@@ -15,7 +15,7 @@ const gotoNextPage = () => {
           嗨嗨，歡迎加入敏捷星球，<br />在正式加入專案開發之前，需要請你先了解
           Scrum 的流程與精神！
         </p>
-        <p>請接受挑戰任務，成功通過<br />Scrum 新手村的挑戰 任務吧 👽</p>
+        <p>請接受挑戰任務，成功通過<br />Scrum 新手村的挑戰 任務吧</p>
       </article>
       <nav class="col-auto text-center">
         <NextStepBtn btn-label="接受挑戰" @click="gotoNextPage"></NextStepBtn>

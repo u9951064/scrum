@@ -307,7 +307,7 @@ onMounted(() => {
 .list-group {
   height: 100%;
   min-height: 9rem;
-  border: 2px solid #ffffff;
+  border: 3px solid #ffffff;
   border-radius: 0;
 }
 
@@ -330,6 +330,9 @@ onMounted(() => {
 
 .list-group-item {
   min-height: 4rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-bottom: 3px solid #ffffff;
 }
 
 .point-item {
