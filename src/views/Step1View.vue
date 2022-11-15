@@ -3,11 +3,59 @@ import GouMinErCVCard from "@/components/images/GouMinErCVCard.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
 import NextStepBtn from "@/components/NextStepBtn.vue";
+import TypeIn from "@/components/TypeIn.vue";
 import router from "@/router";
+import { ref } from "vue";
 
 const gotoNextPage = () => {
   router.push({ name: "step2" });
 };
+
+const typeInConfig = ref([
+  {
+    tagBegin: "<p>",
+    inner: "我是 敏捷宇宙 - 皮歐星 的 PO",
+    tagEnd: "</p>",
+  },
+  {
+    tagBegin: '<p><span class="highlight-text">',
+    inner: "PO 也就是產品負責人 (Product Owner)。",
+    tagEnd: "</span></p>",
+  },
+  {
+    tagBegin: "<p>",
+    inner: [
+      {
+        inner:
+          "產品負責人會負責評估產品待辦清單的價值與重要性，依序排列要執行的優先順序，對齊產品目標。",
+      },
+      {
+        tagBegin: "<br />",
+        inner: "最後排出",
+      },
+      {
+        tagBegin: '<span class="highlight-text">',
+        inner: "產品待辦清單 (Product Backlog) 唷！",
+        tagEnd: "</span>",
+      },
+    ],
+    tagEnd: "</p>",
+  },
+  {
+    tagBegin: "<p>",
+    inner: [
+      {
+        inner:
+          "剛好我最近手邊有一個 ( 人才招募系統 ) 的案子，我才剛列出了( 產品需求清單 )。",
+      },
+      {
+        tagBegin: "<br />",
+        inner: "既然你都來了，來試試看調整產品優先度，排出產品待辦清單吧！",
+      },
+    ],
+    tagEnd: "</p>",
+  },
+]);
 </script>
 
 <template>
@@ -30,18 +78,8 @@ const gotoNextPage = () => {
                   <section class="col-12 col-md-6 text-center">
                     <GouMinErCVCard></GouMinErCVCard>
                   </section>
-                  <section class="col-12 col-md-6">
-                    <p>PO 也就是產品負責人 (Product Owner)。</p>
-                    <p>
-                      產品負責人會負責評估產品待辦清單的價值與重要性，依序排列要執行的優先順序，對齊產品目標。<br />
-                      最後排出產品待辦清單 (Product Backlog) 唷！
-                    </p>
-                    <p>
-                      剛好我最近手邊有一個 ( 人才招募系統 ) 的案子，我才剛列出了
-                      ( 產品需求清單 )。<br />
-                      既然你都來了，來試試看調整產品優先度，排出產品待辦清單吧
-                      🤖
-                    </p>
+                  <section class="col-12 col-md-6 pt-3">
+                    <TypeIn :screen-configs="typeInConfig"></TypeIn>
                   </section>
                 </article>
               </div>

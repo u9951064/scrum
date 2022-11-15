@@ -42,3 +42,8 @@
 .bg-white {
   background-color: #FFFFFF;
 }
+
+.highlight-text {
+  display: inline-block;
+  border-bottom: 2px solid #0DEFB5;
+}
