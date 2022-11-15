@@ -7,6 +7,7 @@ import StepList from "@/components/StepList.vue";
 import Role from "@/constants/Role";
 import router from "@/router";
 import { onMounted, ref } from "vue";
+import TypeIn from "@/components/TypeIn.vue";
 import draggable from "vuedraggable";
 import {
   useStore as usePopupStore,
@@ -143,6 +144,28 @@ onMounted(() => {
     () => Math.random() - 0.5
   );
 });
+
+const finishedChat = ref(0);
+const chat1Config = ref([
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner: [
+      {
+        inner:
+          "請把需求放到產品待辦清單，並調整待辦的優先度順序。我們公司也推薦使用",
+      },
+      {
+        tagBegin: ' <span class="highlight-text">',
+        inner: "Jira",
+        tagEnd: "</span> ",
+      },
+      {
+        inner: "來做任務的管理呢！",
+      },
+    ],
+    tagEnd: "</div>",
+  },
+]);
 </script>
 
 <template>
@@ -166,13 +189,13 @@ onMounted(() => {
                 >
                   <section class="col-12">
                     <ChatBox :role="Role.GouMinEr" :logo="true">
-                      <div class="fz-14px">
-                        請把需求放到產品待辦清單，並調整待辦的優先度順序。
-                        我們公司也推薦使用 Jira 來做任務的管理呢！
-                      </div>
+                      <TypeIn
+                        :screen-configs="chat1Config"
+                        @ended="finishedChat = 1"
+                      ></TypeIn>
                     </ChatBox>
                   </section>
-                  <section class="col-12 text-center">
+                  <section class="col-12 text-center" v-if="finishedChat >= 1">
                     <div class="d-block d-md-none" ref="mobileDetector">
                       <StarTitle
                         >拖移區塊，並調整待辦清單的優先度順序</StarTitle
@@ -301,6 +324,7 @@ onMounted(() => {
             </div>
             <div class="col-auto text-center">
               <NextStepBtn
+                v-if="finishedChat >= 1"
                 btn-label="排序完成"
                 @click="checkAnswerOrGoNextPage"
               ></NextStepBtn>

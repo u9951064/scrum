@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import NextStepBtn from "@/components/NextStepBtn.vue";
-import router from "@/router";
 import TypeIn from "@/components/TypeIn.vue";
+import router from "@/router";
 import { ref } from "vue";
 
+const showBtn = ref(false);
 const gotoNextPage = () => {
-  router.push({ name: "step1" });
+  if (showBtn.value) {
+    router.push({ name: "step1" });
+  }
 };
 
 const typeInConfig = ref([
@@ -47,10 +50,14 @@ const typeInConfig = ref([
   <div class="start-page">
     <main class="main-content-block row flex-column justify-content-end">
       <article class="col-auto description fw-400">
-        <TypeIn :screen-configs="typeInConfig"></TypeIn>
+        <TypeIn :screen-configs="typeInConfig" @ended="showBtn = true"></TypeIn>
       </article>
       <nav class="col-auto text-center">
-        <NextStepBtn btn-label="接受挑戰" @click="gotoNextPage"></NextStepBtn>
+        <NextStepBtn
+          :class="{ hideBtn: !showBtn }"
+          btn-label="接受挑戰"
+          @click="gotoNextPage"
+        ></NextStepBtn>
       </nav>
     </main>
   </div>

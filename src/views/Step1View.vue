@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import GouMinErCVCard from "@/components/images/GouMinErCVCard.vue";
+import NextStepBtn from "@/components/NextStepBtn.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
-import NextStepBtn from "@/components/NextStepBtn.vue";
 import TypeIn from "@/components/TypeIn.vue";
 import router from "@/router";
 import { ref } from "vue";
 
+const showBtn = ref(false);
 const gotoNextPage = () => {
-  router.push({ name: "step2" });
+  if (showBtn.value) {
+    router.push({ name: "step2" });
+  }
 };
 
 const typeInConfig = ref([
@@ -79,12 +82,17 @@ const typeInConfig = ref([
                     <GouMinErCVCard></GouMinErCVCard>
                   </section>
                   <section class="col-12 col-md-6 pt-3">
-                    <TypeIn :screen-configs="typeInConfig"></TypeIn>
+                    <TypeIn
+                      :screen-configs="typeInConfig"
+                      :speed-ms="10"
+                      @ended="showBtn = true"
+                    ></TypeIn>
                   </section>
                 </article>
               </div>
               <div class="col-auto text-center">
                 <NextStepBtn
+                  :class="{ hideBtn: !showBtn }"
                   btn-label="接受挑戰"
                   @click="gotoNextPage"
                 ></NextStepBtn>

@@ -47,3 +47,7 @@
   display: inline-block;
   border-bottom: 2px solid #0DEFB5;
 }
+
+.hideBtn {
+  opacity: 0;
+}

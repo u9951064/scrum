@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, onUnmounted, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
 interface ScreenConfig {
   tagBegin?: string;
@@ -11,6 +11,8 @@ const props = defineProps<{
   screenConfigs: ScreenConfig[];
   speedMs?: number;
 }>();
+
+const emits = defineEmits(["ended"]);
 
 const fullyContent = computed((): string => {
   return controlSteps.value.length > 0
@@ -76,6 +78,7 @@ onMounted(() => {
     currentIndex.value += 1;
     if (currentIndex.value >= controlSteps.value.length) {
       clearTimer();
+      emits("ended");
     }
   }, props.speedMs || 20);
 });
