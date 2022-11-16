@@ -12,6 +12,8 @@ const props = defineProps<{
   speedMs?: number;
 }>();
 
+const animation = ref();
+
 const emits = defineEmits(["ended"]);
 
 const fullyContent = computed((): string => {
@@ -74,6 +76,7 @@ const clearTimer = () => {
 };
 
 onMounted(() => {
+  animation.value.scrollIntoView({ behavior: "smooth", block: "nearest" });
   timer = setInterval(() => {
     currentIndex.value += 1;
     if (currentIndex.value >= controlSteps.value.length) {
@@ -88,7 +91,7 @@ onBeforeUnmount(clearTimer);
 
 <template>
   <div class="position-relative">
-    <div class="hidden-block" v-html="fullyContent"></div>
+    <div ref="animation" class="hidden-block" v-html="fullyContent"></div>
     <div class="animation-block" v-html="currentContent"></div>
   </div>
 </template>

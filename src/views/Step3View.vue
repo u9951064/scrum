@@ -5,10 +5,84 @@ import StepList from "@/components/StepList.vue";
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import ChatBox from "@/components/ChatBox.vue";
 import router from "@/router";
+import TypeIn from "@/components/TypeIn.vue";
+import { ref } from "vue";
 
 const gotoNextPage = () => {
   router.push({ name: "step4" });
 };
+
+const finishedChat = ref(0);
+const chat1Config = ref([
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "產品待辦清單好了之後，我們來召集 Scrum Master 和開發團隊共同召開 短衝規劃會議 (Sprint Planning)。",
+    tagEnd: "</div>",
+  },
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "短衝即是一個迭代，具有固定時間限制，我們會在這個會議中，決定要完成哪些工作事項來達到商業需求，列出短衝待辦清單，並由開發團隊在接下來的產品開發週期裡執行。",
+    tagEnd: "</div>",
+  },
+]);
+
+const chat2Config = ref([
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "嗨嗨，你是新來的前端吧！ 我是這次的 Scrum Master 石光神，我的工作主要是促成開發團隊成員協作、引導團隊進行自省會議、提升團隊成員對 Scrum 瞭解。 這兩位是 開新果 和 發大才，是我們開發團隊的成員唷～",
+    tagEnd: "</div>",
+  },
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "目前我們團隊一次 Sprint 週期是兩週的時間，依照我的觀察，目前團隊可以負擔的點數 (Sprint Point) 大約是 20 點左右。",
+    tagEnd: "</div>",
+  },
+]);
+
+const chat3Config = ref([
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner: "欸新來的，你應該不知道點數是什麼意思吧？哈哈",
+    tagEnd: "</div>",
+  },
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner: "我來跟你介紹一下吧～",
+    tagEnd: "</div>",
+  },
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "Sprint Point，目的是為了衡量速度，是用大概花費的時間預估出的相對點數。",
+    tagEnd: "</div>",
+  },
+]);
+
+const chat4Config = ref([
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner: [
+      {
+        inner: "沒錯，如 開新果 說的，我這邊已經把剛剛討論好的點數標上去囉～",
+      },
+      {
+        tagBegin: "<br />",
+        inner: "你來練習把任務排到短衝待辦清單吧！",
+      },
+    ],
+    tagEnd: "</div>",
+  },
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "By the way, 我們平常管理任務是使用 Jira 這套軟體，你有時間記得先去註冊和熟悉唷。",
+    tagEnd: "</div>",
+  },
+]);
 </script>
 
 <template>
@@ -32,48 +106,41 @@ const gotoNextPage = () => {
                 >
                   <section class="col-12">
                     <ChatBox :role="Role.GouMinEr">
-                      <div class="fz-14px">
-                        產品待辦清單好了之後，我們來召集 Scrum Master
-                        和開發團隊共同召開 短衝規劃會議 (Sprint Planning)。
-                      </div>
-                      <div class="fz-14px">
-                        短衝即是一個迭代，具有固定時間限制，我們會在這個會議中，決定要完成哪些工作事項來達到商業需求，列出短衝待辦清單，並由開發團隊在接下來的產品開發週期裡執行。
-                      </div>
+                      <TypeIn
+                        :screen-configs="chat1Config"
+                        :speed-ms="10"
+                        @ended="finishedChat = finishedChat + 1"
+                      ></TypeIn>
                     </ChatBox>
-                    <ChatBox :role="Role.ShiTouShen" :flip="true">
-                      <div class="fz-14px">
-                        嗨嗨，你是新來的前端吧！ 我是這次的 Scrum Master
-                        石光神，我的工作主要是促成開發團隊成員協作、引導團隊進行自省會議、提升團隊成員對
-                        Scrum 瞭解。 這兩位是 開新果 和
-                        發大才，是我們開發團隊的成員唷～
-                      </div>
-                      <div class="fz-14px">
-                        目前我們團隊一次 Sprint
-                        週期是兩週的時間，依照我的觀察，目前團隊可以負擔的點數
-                        (Sprint Point) 大約是 20 點左右。
-                      </div>
+                    <ChatBox
+                      :role="Role.ShiTouShen"
+                      :flip="true"
+                      v-if="finishedChat >= 1"
+                    >
+                      <TypeIn
+                        :screen-configs="chat2Config"
+                        :speed-ms="10"
+                        @ended="finishedChat = finishedChat + 1"
+                      ></TypeIn>
                     </ChatBox>
-                    <ChatBox :role="Role.KaiXinGou">
-                      <div class="fz-14px">
-                        欸新來的，你應該不知道點數是什麼意思吧？哈哈
-                      </div>
-                      <div class="fz-14px">我來跟你介紹一下吧～</div>
-                      <div class="fz-14px">
-                        Sprint
-                        Point，目的是為了衡量速度，是用大概花費的時間預估出的相對點數。
-                      </div>
+                    <ChatBox :role="Role.KaiXinGou" v-if="finishedChat >= 2">
+                      <TypeIn
+                        :screen-configs="chat3Config"
+                        :speed-ms="10"
+                        @ended="finishedChat = finishedChat + 1"
+                      ></TypeIn>
                     </ChatBox>
-
-                    <ChatBox :role="Role.FaDaCia" :flip="true" :logo="true">
-                      <div class="fz-14px">
-                        沒錯，如 開新果
-                        說的，我這邊已經把剛剛討論好的點數標上去囉～<br />
-                        你來練習把任務排到短衝待辦清單吧！
-                      </div>
-                      <div class="fz-14px">
-                        By the way, 我們平常管理任務是使用 Jira
-                        這套軟體，你有時間記得先去註冊和熟悉唷。
-                      </div>
+                    <ChatBox
+                      :role="Role.FaDaCia"
+                      :flip="true"
+                      :logo="true"
+                      v-if="finishedChat >= 3"
+                    >
+                      <TypeIn
+                        :screen-configs="chat4Config"
+                        :speed-ms="10"
+                        @ended="finishedChat = finishedChat + 1"
+                      ></TypeIn>
                     </ChatBox>
                   </section>
                 </article>
@@ -81,6 +148,7 @@ const gotoNextPage = () => {
             </div>
             <div class="col-auto text-center">
               <NextStepBtn
+                v-if="finishedChat >= 4"
                 btn-label="我來挑戰"
                 @click="gotoNextPage"
               ></NextStepBtn>
