@@ -6,9 +6,9 @@ import NextStepBtn from "@/components/NextStepBtn.vue";
 import StarTitle from "@/components/StarTitle.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
+import TypeIn from "@/components/TypeIn.vue";
 import Role from "@/constants/Role";
 import router from "@/router";
-import TypeIn from "@/components/TypeIn.vue";
 import { reactive, ref } from "vue";
 import draggable from "vuedraggable";
 import {
@@ -71,7 +71,12 @@ const checkAnswerOrGoNextPage = () => {
   isCorrect = isCorrect && sprintRetroTarget.value[0].name === "retro";
   isCorrect = isCorrect && sprintReviewTarget.value[0].name === "review";
   if (isCorrect) {
-    router.push({ name: "step7" });
+    popupStore.dispatch("show", {
+      icon: "success",
+      title: "流程正確",
+      btnLabel: "繼續",
+      btnCB: () => router.push({ name: "step7" }),
+    } as PopupShow);
   } else {
     popupStore.dispatch("show", {
       icon: "error",

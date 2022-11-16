@@ -6,8 +6,8 @@ import NextStepBtn from "@/components/NextStepBtn.vue";
 import StarTitle from "@/components/StarTitle.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
-import Role from "@/constants/Role";
 import TypeIn from "@/components/TypeIn.vue";
+import Role from "@/constants/Role";
 import router from "@/router";
 import { reactive, ref } from "vue";
 import {
@@ -56,7 +56,12 @@ const checkAnswer = (): boolean => {
 
 const checkAnswerOrGoNextPage = () => {
   if (checkAnswer()) {
-    router.push({ name: "finish" });
+    popupStore.dispatch("show", {
+      title: "回饋正確",
+      btnLabel: "繼續",
+      icon: "success",
+      btnCB: () => router.push({ name: "finish" }),
+    } as PopupShow);
   } else {
     popupStore.dispatch("show", {
       title: "回饋錯誤",

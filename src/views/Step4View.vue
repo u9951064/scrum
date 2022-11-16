@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import IconDownArrow from "@/components/icons/IconDownArrow.vue";
+import IconRightArrow from "@/components/icons/IconRrightArrow.vue";
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import StarTitle from "@/components/StarTitle.vue";
 import StepBar from "@/components/StepBar.vue";
@@ -10,8 +12,6 @@ import {
   useStore as usePopupStore,
   type PopupShow,
 } from "../store/popupMessage";
-import IconDownArrow from "@/components/icons/IconDownArrow.vue";
-import IconRightArrow from "@/components/icons/IconRrightArrow.vue";
 
 interface OptionRecord {
   title: string;
@@ -72,7 +72,7 @@ const resetAnswer = () => {
   while (backlogTarget.value.length > 0) {
     backlogSource.value.push(backlogTarget.value.pop() as OptionRecord);
   }
-}
+};
 
 const onEndEvent = () => {
   const checkedResult = checkAnswer();
@@ -94,7 +94,12 @@ const checkAnswerOrGoNextPage = () => {
   const checkedResult = checkAnswer();
   switch (checkedResult) {
     case "pass":
-      router.push({ name: "step5" });
+      popupStore.dispatch("show", {
+        title: "點數正確",
+        icon: "success",
+        btnLabel: "繼續",
+        btnCB: () => router.push({ name: "step5" }),
+      } as PopupShow);
       break;
     case "overflow":
       popupStore.dispatch("show", {
