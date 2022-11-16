@@ -3,12 +3,53 @@ import ChatBox from "@/components/ChatBox.vue";
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
+import TypeIn from "@/components/TypeIn.vue";
 import Role from "@/constants/Role";
 import router from "@/router";
+import { ref } from "vue";
 
 const gotoNextPage = () => {
   router.push({ name: "step6" });
 };
+
+const finishedChat = ref(0);
+const chat1Config = ref([
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner: "等等，你都還不知道什麼是 Sprint 吧！",
+    tagEnd: "</div>",
+  },
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner: "讓 發大財 先為你介紹一下～",
+    tagEnd: "</div>",
+  },
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner: "仔細聽好唷，等等會考考你！",
+    tagEnd: "</div>",
+  },
+]);
+
+const chat2Config = ref([
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner: "Sprint 是一個短衝，開發團隊會在這期間執行開發。",
+    tagEnd: "</div>",
+  },
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "在這段期間內，開發團隊舉辦每日站立會議 (Daily Scrum)，追蹤成員間的工作狀況。",
+    tagEnd: "</div>",
+  },
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "除了每日站立會議，在 Sprint 的結束也會包含短衝檢視會議 (Sprint Review)、短衝自省會議(Sprint Retrospective)。",
+    tagEnd: "</div>",
+  },
+]);
 </script>
 
 <template>
@@ -32,26 +73,22 @@ const gotoNextPage = () => {
                 >
                   <section class="col-12">
                     <ChatBox :role="Role.KaiXinGou">
-                      <div class="fz-14px">
-                        等等，你都還不知道什麼是 Sprint 吧！
-                      </div>
-                      <div class="fz-14px">讓 發大財 先為你介紹一下～</div>
-                      <div class="fz-14px">仔細聽好唷，等等會考考你！</div>
+                      <TypeIn
+                        :screen-configs="chat1Config"
+                        @ended="finishedChat = finishedChat + 1"
+                      ></TypeIn>
                     </ChatBox>
-                    <ChatBox :role="Role.FaDaCia" :flip="true">
-                      <div class="fz-14px">
-                        Sprint 是一個短衝，開發團隊會在這期間執行開發。
-                      </div>
-                      <div class="fz-14px">
-                        在這段期間內，開發團隊舉辦每日站立會議 (Daily
-                        Scrum)，追蹤成員間的工作狀況。
-                      </div>
-                      <div class="fz-14px">
-                        除了每日站立會議，在 Sprint 的結束也會包含短衝檢視會議
-                        (Sprint Review)、短衝自省會議(Sprint Retrospective)。
-                      </div>
+                    <ChatBox
+                      v-if="finishedChat >= 1"
+                      :role="Role.FaDaCia"
+                      :flip="true"
+                    >
+                      <TypeIn
+                        :screen-configs="chat2Config"
+                        @ended="finishedChat = finishedChat + 1"
+                      ></TypeIn>
                     </ChatBox>
-                    <div class="row">
+                    <div class="row" v-if="finishedChat >= 2">
                       <div class="col-12 col-md-4 pt-3">
                         <picture>
                           <source
@@ -98,6 +135,7 @@ const gotoNextPage = () => {
             </div>
             <div class="col-auto text-center">
               <NextStepBtn
+                v-if="finishedChat >= 2"
                 btn-label="我來挑戰"
                 @click="gotoNextPage"
               ></NextStepBtn>

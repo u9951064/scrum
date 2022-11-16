@@ -7,8 +7,9 @@ import StarTitle from "@/components/StarTitle.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
 import Role from "@/constants/Role";
+import TypeIn from "@/components/TypeIn.vue";
 import router from "@/router";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import {
   useStore as usePopupStore,
   type PopupShow,
@@ -81,6 +82,22 @@ const setImproveListUnique = (index: number) => {
     }
   });
 };
+
+const finishedChat = ref(0);
+const chat1Config = ref([
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "哇賽新來的，你真的很幸運，今天剛好是 敏捷星 的 Retro，你也來見識一下，看看 Retro 都該做些什麼吧～～",
+    tagEnd: "</div>",
+  },
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "我們會在會議裡請團隊成員提出哪些是做得好的地方、哪些可以繼續改進的地方？並記錄在 Confluence 中。 重點在於 (正面表述)，你也思考看看，哪一些是適合 Retro 的回饋吧～～",
+    tagEnd: "</div>",
+  },
+]);
 </script>
 
 <template>
@@ -107,82 +124,79 @@ const setImproveListUnique = (index: number) => {
                       <div class="text-center">
                         <ConfluenceLogo></ConfluenceLogo>
                       </div>
-                      <div class="fz-14px">
-                        哇賽新來的，你真的很幸運，今天剛好是 敏捷星 的
-                        Retro，你也來見識一下，看看 Retro 都該做些什麼吧～～
-                      </div>
-                      <div class="fz-14px">
-                        我們會在會議裡請團隊成員提出哪些是做得好的地方、哪些可以繼續改進的地方？並記錄在
-                        Confluence 中。 重點在於
-                        (正面表述)，你也思考看看，哪一些是適合 Retro
-                        的回饋吧～～
-                      </div>
+                      <TypeIn
+                        :screen-configs="chat1Config"
+                        @ended="finishedChat = finishedChat + 1"
+                      ></TypeIn>
                     </ChatBox>
-                    <StarTitle
-                      >思考看看，哪些回答是適合 Retro 的回饋並打勾</StarTitle
-                    >
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="list-block">
-                          <div
-                            class="list-title text-center py-2 c-purple bg-white"
-                          >
-                            做得好的地方！
-                          </div>
-                          <div
-                            class="list-item row"
-                            v-for="(item, index) in goodJobList"
-                            :key="index"
-                          >
-                            <div class="col-auto">
-                              <CheckBox
-                                v-model="item.checked"
-                                :model-id="`goodJobList-${index}`"
-                                @input="setGoodJobListUnique(index)"
-                              ></CheckBox>
+                    <template v-if="finishedChat >= 1">
+                      <StarTitle
+                        >思考看看，哪些回答是適合 Retro 的回饋並打勾</StarTitle
+                      >
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="list-block">
+                            <div
+                              class="list-title text-center py-2 c-purple bg-white"
+                            >
+                              做得好的地方！
                             </div>
-                            <label
-                              class="col"
-                              v-text="item.label"
-                              :for="`goodJobList-${index}`"
-                            ></label>
+                            <div
+                              class="list-item row"
+                              v-for="(item, index) in goodJobList"
+                              :key="index"
+                            >
+                              <div class="col-auto">
+                                <CheckBox
+                                  v-model="item.checked"
+                                  :model-id="`goodJobList-${index}`"
+                                  @input="setGoodJobListUnique(index)"
+                                ></CheckBox>
+                              </div>
+                              <label
+                                class="col"
+                                v-text="item.label"
+                                :for="`goodJobList-${index}`"
+                              ></label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="list-block">
+                            <div
+                              class="list-title text-center py-2 c-purple bg-white"
+                            >
+                              有哪些可以做得更好？
+                            </div>
+                            <div
+                              class="list-item row"
+                              v-for="(item, index) in improveList"
+                              :key="index"
+                            >
+                              <div class="col-auto">
+                                <CheckBox
+                                  v-model="item.checked"
+                                  :model-id="`improveList-${index}`"
+                                  @input="setImproveListUnique(index)"
+                                ></CheckBox>
+                              </div>
+                              <label
+                                class="col"
+                                v-text="item.label"
+                                :for="`improveList-${index}`"
+                              ></label>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div class="col-12 col-md-6">
-                        <div class="list-block">
-                          <div
-                            class="list-title text-center py-2 c-purple bg-white"
-                          >
-                            有哪些可以做得更好？
-                          </div>
-                          <div
-                            class="list-item row"
-                            v-for="(item, index) in improveList"
-                            :key="index"
-                          >
-                            <div class="col-auto">
-                              <CheckBox
-                                v-model="item.checked"
-                                :model-id="`improveList-${index}`"
-                                @input="setImproveListUnique(index)"
-                              ></CheckBox>
-                            </div>
-                            <label
-                              class="col"
-                              v-text="item.label"
-                              :for="`improveList-${index}`"
-                            ></label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    </template>
                   </section>
                 </article>
               </div>
             </div>
             <div class="col-auto text-center">
               <NextStepBtn
+                v-if="finishedChat >= 1"
                 btn-label="我想我了解了！"
                 @click="checkAnswerOrGoNextPage"
               ></NextStepBtn>

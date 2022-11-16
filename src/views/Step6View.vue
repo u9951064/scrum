@@ -8,6 +8,7 @@ import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
 import Role from "@/constants/Role";
 import router from "@/router";
+import TypeIn from "@/components/TypeIn.vue";
 import { reactive, ref } from "vue";
 import draggable from "vuedraggable";
 import {
@@ -80,6 +81,16 @@ const checkAnswerOrGoNextPage = () => {
     } as PopupShow);
   }
 };
+
+const finishedChat = ref(0);
+const chat1Config = ref([
+  {
+    tagBegin: '<div class="fz-14px">',
+    inner:
+      "換你來試試看，在這經典的 Scrum 流程圖中，這些流程分別代表哪一個會議呢？",
+    tagEnd: "</div>",
+  },
+]);
 </script>
 
 <template>
@@ -103,125 +114,128 @@ const checkAnswerOrGoNextPage = () => {
                 >
                   <section class="col-12">
                     <ChatBox :role="Role.KaiXinGou">
-                      <div class="fz-14px">
-                        換你來試試看，在這經典的 Scrum
-                        流程圖中，這些流程分別代表哪一個會議呢？
-                      </div>
+                      <TypeIn
+                        :screen-configs="chat1Config"
+                        @ended="finishedChat = finishedChat + 1"
+                      ></TypeIn>
                     </ChatBox>
-                    <StarTitle>拖移區塊，把對應流程貼到正確位置</StarTitle>
-                    <div class="position-relative">
-                      <div class="d-none d-md-block sprint-flow">
-                        <Step6Desktop></Step6Desktop>
+                    <template v-if="finishedChat >= 1">
+                      <StarTitle>拖移區塊，把對應流程貼到正確位置</StarTitle>
+                      <div class="position-relative">
+                        <div class="d-none d-md-block sprint-flow">
+                          <Step6Desktop></Step6Desktop>
+                        </div>
+                        <div class="d-block d-md-none sprint-flow">
+                          <Step6Mobile></Step6Mobile>
+                        </div>
+                        <div class="sprint-daily">
+                          <img class="w-100" src="../assets/SprintDaily.svg" />
+                        </div>
+                        <draggable
+                          :disabled="isDisabled.sprintRetroSource"
+                          @start="onStartEvent('sprintRetroSource')"
+                          @end="onEndEvent"
+                          class="sprint-source sprint-retro-source"
+                          :list="sprintRetroSource"
+                          group="sprintEvent"
+                          itemKey="name"
+                        >
+                          <template #item="{ element }">
+                            <div :class="`sprint-event-${element.name}`">
+                              <img
+                                v-if="element.name === 'retro'"
+                                class="w-100"
+                                src="../assets/SprintRetro.svg"
+                              />
+                              <img
+                                v-if="element.name === 'review'"
+                                class="w-100"
+                                src="../assets/SprintReview.svg"
+                              />
+                            </div>
+                          </template>
+                        </draggable>
+                        <draggable
+                          :disabled="isDisabled.sprintReviewSource"
+                          @start="onStartEvent('sprintReviewSource')"
+                          @end="onEndEvent"
+                          class="sprint-source sprint-review-source"
+                          :list="sprintReviewSource"
+                          group="sprintEvent"
+                          itemKey="name"
+                        >
+                          <template #item="{ element }">
+                            <div :class="`sprint-event-${element.name}`">
+                              <img
+                                v-if="element.name === 'retro'"
+                                class="w-100"
+                                src="../assets/SprintRetro.svg"
+                              />
+                              <img
+                                v-if="element.name === 'review'"
+                                class="w-100"
+                                src="../assets/SprintReview.svg"
+                              />
+                            </div>
+                          </template>
+                        </draggable>
+                        <draggable
+                          :disabled="isDisabled.sprintRetroTarget"
+                          @start="onStartEvent('sprintRetroTarget')"
+                          @end="onEndEvent"
+                          class="sprint-target sprint-retro-target"
+                          :list="sprintRetroTarget"
+                          group="sprintEvent"
+                          itemKey="name"
+                        >
+                          <template #item="{ element }">
+                            <div :class="`sprint-event-item-${element.name}`">
+                              <img
+                                v-if="element.name === 'retro'"
+                                class="w-100"
+                                src="../assets/SprintRetro.svg"
+                              />
+                              <img
+                                v-if="element.name === 'review'"
+                                class="w-100"
+                                src="../assets/SprintReview.svg"
+                              />
+                            </div>
+                          </template>
+                        </draggable>
+                        <draggable
+                          :disabled="isDisabled.sprintReviewTarget"
+                          @start="onStartEvent('sprintReviewTarget')"
+                          @end="onEndEvent"
+                          class="sprint-target sprint-review-target"
+                          :list="sprintReviewTarget"
+                          group="sprintEvent"
+                          itemKey="name"
+                        >
+                          <template #item="{ element }">
+                            <div :class="`sprint-event-item-${element.name}`">
+                              <img
+                                v-if="element.name === 'retro'"
+                                class="w-100"
+                                src="../assets/SprintRetro.svg"
+                              />
+                              <img
+                                v-if="element.name === 'review'"
+                                class="w-100"
+                                src="../assets/SprintReview.svg"
+                              />
+                            </div>
+                          </template>
+                        </draggable>
                       </div>
-                      <div class="d-block d-md-none sprint-flow">
-                        <Step6Mobile></Step6Mobile>
-                      </div>
-                      <div class="sprint-daily">
-                        <img class="w-100" src="../assets/SprintDaily.svg" />
-                      </div>
-                      <draggable
-                        :disabled="isDisabled.sprintRetroSource"
-                        @start="onStartEvent('sprintRetroSource')"
-                        @end="onEndEvent"
-                        class="sprint-source sprint-retro-source"
-                        :list="sprintRetroSource"
-                        group="sprintEvent"
-                        itemKey="name"
-                      >
-                        <template #item="{ element }">
-                          <div :class="`sprint-event-${element.name}`">
-                            <img
-                              v-if="element.name === 'retro'"
-                              class="w-100"
-                              src="../assets/SprintRetro.svg"
-                            />
-                            <img
-                              v-if="element.name === 'review'"
-                              class="w-100"
-                              src="../assets/SprintReview.svg"
-                            />
-                          </div>
-                        </template>
-                      </draggable>
-                      <draggable
-                        :disabled="isDisabled.sprintReviewSource"
-                        @start="onStartEvent('sprintReviewSource')"
-                        @end="onEndEvent"
-                        class="sprint-source sprint-review-source"
-                        :list="sprintReviewSource"
-                        group="sprintEvent"
-                        itemKey="name"
-                      >
-                        <template #item="{ element }">
-                          <div :class="`sprint-event-${element.name}`">
-                            <img
-                              v-if="element.name === 'retro'"
-                              class="w-100"
-                              src="../assets/SprintRetro.svg"
-                            />
-                            <img
-                              v-if="element.name === 'review'"
-                              class="w-100"
-                              src="../assets/SprintReview.svg"
-                            />
-                          </div>
-                        </template>
-                      </draggable>
-                      <draggable
-                        :disabled="isDisabled.sprintRetroTarget"
-                        @start="onStartEvent('sprintRetroTarget')"
-                        @end="onEndEvent"
-                        class="sprint-target sprint-retro-target"
-                        :list="sprintRetroTarget"
-                        group="sprintEvent"
-                        itemKey="name"
-                      >
-                        <template #item="{ element }">
-                          <div :class="`sprint-event-item-${element.name}`">
-                            <img
-                              v-if="element.name === 'retro'"
-                              class="w-100"
-                              src="../assets/SprintRetro.svg"
-                            />
-                            <img
-                              v-if="element.name === 'review'"
-                              class="w-100"
-                              src="../assets/SprintReview.svg"
-                            />
-                          </div>
-                        </template>
-                      </draggable>
-                      <draggable
-                        :disabled="isDisabled.sprintReviewTarget"
-                        @start="onStartEvent('sprintReviewTarget')"
-                        @end="onEndEvent"
-                        class="sprint-target sprint-review-target"
-                        :list="sprintReviewTarget"
-                        group="sprintEvent"
-                        itemKey="name"
-                      >
-                        <template #item="{ element }">
-                          <div :class="`sprint-event-item-${element.name}`">
-                            <img
-                              v-if="element.name === 'retro'"
-                              class="w-100"
-                              src="../assets/SprintRetro.svg"
-                            />
-                            <img
-                              v-if="element.name === 'review'"
-                              class="w-100"
-                              src="../assets/SprintReview.svg"
-                            />
-                          </div>
-                        </template>
-                      </draggable>
-                    </div>
+                    </template>
                   </section>
                 </article>
               </div>
             </div>
             <div class="col-auto text-center">
               <NextStepBtn
+                v-if="finishedChat >= 1"
                 btn-label="我來挑戰"
                 @click="checkAnswerOrGoNextPage"
               ></NextStepBtn>

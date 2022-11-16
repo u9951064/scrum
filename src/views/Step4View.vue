@@ -68,6 +68,12 @@ const checkAnswer = () => {
   return "pass";
 };
 
+const resetAnswer = () => {
+  while (backlogTarget.value.length > 0) {
+    backlogSource.value.push(backlogTarget.value.pop() as OptionRecord);
+  }
+}
+
 const onEndEvent = () => {
   const checkedResult = checkAnswer();
   if (checkedResult !== "overflow") {
@@ -78,6 +84,7 @@ const onEndEvent = () => {
     message: "塞太多任務啦！<br/>這個 Sprint 只有 20 點喔！",
     icon: "error",
     btnLabel: "再試一次",
+    btnCB: resetAnswer,
   } as PopupShow);
 
   return false;

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Role from "@/constants/Role";
+import ChatBox from "@/components/ChatBox.vue";
+import NextStepBtn from "@/components/NextStepBtn.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
-import NextStepBtn from "@/components/NextStepBtn.vue";
-import ChatBox from "@/components/ChatBox.vue";
-import router from "@/router";
 import TypeIn from "@/components/TypeIn.vue";
+import Role from "@/constants/Role";
+import router from "@/router";
 import { ref } from "vue";
 
 const gotoNextPage = () => {
