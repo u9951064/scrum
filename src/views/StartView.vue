@@ -47,7 +47,18 @@ const typeInConfig = ref([
 </script>
 
 <template>
-  <div class="start-page">
+  <div class="start-page position-relative">
+    <div class="bg-plants">
+      <img class="plant plant1" src="../assets/largePlant1.svg" />
+      <img class="plant plant2" src="../assets/largePlant2.svg" />
+      <img class="plant plant3" src="../assets/largePlant3.svg" />
+      <img class="plant plant4" src="../assets/largePlant4.svg" />
+      <img class="plant plant5" src="../assets/largePlant5.svg" />
+      <img class="plant plant6" src="../assets/largePlant6.svg" />
+      <img class="plant plant7" src="../assets/largePlant7.svg" />
+      <img class="plant plant8" src="../assets/largePlant8.svg" />
+      <img class="ufo" src="../assets/UFO.svg" />
+    </div>
     <main class="main-content-block row flex-column justify-content-end">
       <article class="col-auto description fw-400">
         <TypeIn :screen-configs="typeInConfig" @ended="showBtn = true"></TypeIn>
@@ -78,5 +89,108 @@ const typeInConfig = ref([
 
 .start-page .description {
   font-size: 1rem;
+}
+
+.bg-plants {
+  /* height: 60vh; */
+}
+
+.plant {
+  width: 10%;
+  position: absolute;
+  animation: rotation 120s linear;
+  animation-iteration-count: infinite;
+}
+
+.plant1 {
+  width: 23vw;
+  top: 43vh;
+  left: 25vw;
+  animation-duration: 100s;
+  filter: drop-shadow(0px 0px 0.8em #8dcfcb68);
+}
+
+.plant2 {
+  width: 9vw;
+  top: 22vh;
+  left: 20vw;
+  animation-duration: 50s;
+  filter: drop-shadow(0px 0px 0.8em #92ff5b9b);
+}
+
+.plant3 {
+  width: 46vw;
+  top: -10vh;
+  left: -10vw;
+  animation-duration: 60s;
+  filter: drop-shadow(0px 0px 0.8em #b766ff9a);
+}
+
+.plant4 {
+  width: 23vw;
+  top: 31vh;
+  left: -5vw;
+  animation-duration: 40s;
+  filter: drop-shadow(0px 0px 0.7em #ff63559c);
+}
+
+.plant5 {
+  width: 35vw;
+  top: -4vh;
+  right: -13vw;
+  animation-duration: 90s;
+  filter: drop-shadow(0px 0px 1.2em #648dffa8);
+}
+
+.plant6 {
+  width: 21vw;
+  top: 23vh;
+  right: 12vw;
+  animation-duration: 70s;
+  filter: drop-shadow(0px 0px 0.8em #ff414166);
+}
+
+.plant7 {
+  width: 7vw;
+  top: 15vh;
+  right: 36vw;
+  animation-duration: 40s;
+  filter: drop-shadow(0px 0px 1em #faa84ab6);
+}
+
+.plant8 {
+  width: 50vw;
+  bottom: 30vh;
+  right: -10vw;
+  animation-duration: 110s;
+  filter: drop-shadow(0px 0px 1.2em #5c3af4c8);
+}
+
+.ufo {
+  width: 7.5vw;
+  position: absolute;
+  top: 60vh;
+  left: 4vh;
+  animation: fly 6s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-719.99deg);
+  }
+}
+
+@keyframes fly {
+  from {
+    transform: rotate(35deg) translateY(2vh);
+  }
+  to {
+    transform: rotate(35deg) translateY(-3vh);
+  }
 }
 </style>
