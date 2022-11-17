@@ -30,14 +30,15 @@ const shareLink = () => {
           <div class="col-auto">
             <StepList :current-step="8"></StepList>
           </div>
-          <div class="col overflow-auto">
-            <div class="row flex-column flex-nowrap">
-              <div class="col main-operation-block p-md-5 text-center">
+          <div class="col overflow-auto position-relative">
+            <img class="ufo" src="../assets/UFO.svg" />
+            <img class="plant" src="../assets/plant8.svg" />
+            <div class="content-block">
+              <div class="p-md-5">
                 恭喜通過 Scrum 新手村任務！<br />
-                正式加入敏捷宇宙，點擊上方小星球，自由探索 Scrum 精神吧！
+                正式加入敏捷宇宙，點擊上方小星球，<br />
+                自由探索 Scrum 精神吧！
               </div>
-            </div>
-            <div class="col-auto text-center">
               <NextStepBtn
                 btn-label="分享連結"
                 @click="shareLink()"
@@ -74,6 +75,41 @@ const shareLink = () => {
   overflow-y: auto;
 }
 
+.content-block {
+  text-align: center;
+  position: absolute;
+  bottom: 6vh;
+  left: 0;
+  right: 0;
+}
+
+.ufo {
+  position: absolute;
+  top: 6vmax;
+  bottom: 80vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 15vmin;
+  z-index: 3;
+  animation: up-down 5s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.plant {
+  position: absolute;
+  top: 0;
+  bottom: 15vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 55vmin;
+  z-index: 2;
+  animation: rotation 120s linear;
+  animation-iteration-count: infinite;
+}
+
 @media (max-width: 767.9px) {
   .hidden-nav {
     display: none;
@@ -87,6 +123,32 @@ const shareLink = () => {
 
   .hidden-nav {
     visibility: hidden;
+  }
+
+  .ufo {
+    width: 8vmin;
+  }
+  .plant {
+    bottom: 10vh;
+    width: 30vmin;
+  }
+}
+
+@keyframes up-down {
+  from {
+    transform: translateY(0vh);
+  }
+  to {
+    transform: translateY(6vh);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-719.99deg);
   }
 }
 </style>
