@@ -176,6 +176,61 @@ const typeInConfig = ref([
   animation-direction: alternate;
 }
 
+@media (min-width: 768px) {
+  .plant1 {
+    width: 11vw;
+    top: 35vh;
+    left: 36vw;
+  }
+  .plant2 {
+    width: 3vw;
+    left: 40vw;
+    top: 18vh;
+  }
+
+  .plant3 {
+    width: 13vw;
+    left: 5vw;
+    top: -8vh;
+  }
+
+  .plant4 {
+    width: 7vw;
+    left: 19vw;
+    top: 27vh;
+  }
+
+  .plant5 {
+    width: 11vw;
+    right: 15vw;
+    top: -4vh;
+  }
+
+  .plant6 {
+    width: 5vw;
+    right: 25vw;
+    top: 22vh;
+  }
+
+  .plant7 {
+    width: 4vw;
+    right: 48vw;
+    top: 11vh;
+  }
+
+  .plant8 {
+    width: 20vw;
+    right: 10vw;
+    bottom: 30vh;
+  }
+
+  .ufo {
+    width: 5vw;
+    left: 17vw;
+    top: 50vh;
+  }
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
