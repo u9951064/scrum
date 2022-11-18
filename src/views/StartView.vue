@@ -91,10 +91,6 @@ const typeInConfig = ref([
   font-size: 1rem;
 }
 
-.bg-plants {
-  /* height: 60vh; */
-}
-
 .plant {
   width: 10%;
   position: absolute;
