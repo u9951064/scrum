@@ -63,7 +63,7 @@ const roleClass = computed(() => {
   overflow: hidden;
 }
 .chat-box ~ .chat-box {
-  padding-top: 0.5rem;
+  padding-top: 1.25rem;
 }
 
 .chat-box.flip {

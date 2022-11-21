@@ -26,9 +26,9 @@ defineEmits(["click"]);
 }
 
 .next-btn {
-  margin: 0.75rem auto 1rem;
+  margin: 40px auto 1rem;
   padding: calc(1.125rem + 2px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 1rem;
   background: #00092bdd;
   color: #ffffff;
@@ -42,10 +42,11 @@ defineEmits(["click"]);
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
+  transition: 0.5s;
 }
 
 .next-btn:hover {
   padding: 1.125rem;
-  border-width: 3px;
+  border-width: 4px;
 }
 </style>

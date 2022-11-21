@@ -174,15 +174,15 @@ const chat1Config = ref([
       <div class="col-auto">
         <StepBar :current-step="2"></StepBar>
       </div>
-      <div class="col py-3 overflow-hidden">
+      <div class="col pt-3 overflow-hidden">
         <div
           class="h-100 row m-auto flex-column flex-md-row flex-nowrap content-region"
         >
           <div class="col-auto">
             <StepList :current-step="2"></StepList>
           </div>
-          <div class="col overflow-auto">
-            <div class="row flex-column flex-nowrap">
+          <div class="col overflow-auto bg-plant">
+            <div class="row flex-column flex-nowrap g-0">
               <div class="col main-operation-block p-md-5">
                 <article
                   class="row flex-column flex-md-row flex-nowrap flex-md-wrap"
@@ -321,13 +321,13 @@ const chat1Config = ref([
                   </section>
                 </article>
               </div>
-            </div>
-            <div class="col-auto text-center">
-              <NextStepBtn
-                v-if="finishedChat >= 1"
-                btn-label="排序完成"
-                @click="checkAnswerOrGoNextPage"
-              ></NextStepBtn>
+              <div class="col-auto text-center">
+                <NextStepBtn
+                  v-if="finishedChat >= 1"
+                  btn-label="排序完成"
+                  @click="checkAnswerOrGoNextPage"
+                ></NextStepBtn>
+              </div>
             </div>
           </div>
         </div>
@@ -345,7 +345,6 @@ const chat1Config = ref([
   height: 100%;
   max-height: 100%;
   max-width: 100%;
-  background: linear-gradient(180deg, #4a289c 0%, #00092b 100%);
   overflow: hidden;
 }
 
@@ -438,5 +437,14 @@ const chat1Config = ref([
   .list-group:not(.list-target) .list-group-item + .list-group-item {
     margin-top: 0.9rem;
   }
+}
+
+.bg-plant {
+  background-image: url("../assets/largePlant2.svg");
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-size: 50vmin;
+  background-position: center bottom -35vmin;
+  padding-bottom: 120px;
 }
 </style>

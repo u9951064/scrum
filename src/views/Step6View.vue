@@ -81,7 +81,7 @@ const checkAnswerOrGoNextPage = () => {
     popupStore.dispatch("show", {
       icon: "error",
       title: "順序錯誤",
-      message: "Scrum 流程的順序錯囉，讓 果敏兒 幫你排完正確的順序吧！",
+      message: "Scrum 流程的順序錯囉",
       btnLabel: "再試一次",
     } as PopupShow);
   }
@@ -104,15 +104,15 @@ const chat1Config = ref([
       <div class="col-auto">
         <StepBar :current-step="6"></StepBar>
       </div>
-      <div class="col py-3 overflow-hidden">
+      <div class="col pt-3 overflow-hidden">
         <div
           class="h-100 row m-auto flex-column flex-md-row flex-nowrap content-region"
         >
           <div class="col-auto">
             <StepList :current-step="6"></StepList>
           </div>
-          <div class="col overflow-auto">
-            <div class="row flex-column flex-nowrap">
+          <div class="col overflow-auto bg-plant">
+            <div class="row flex-column flex-nowrap g-0">
               <div class="col main-operation-block p-md-5">
                 <article
                   class="row flex-column flex-md-row flex-nowrap flex-md-wrap"
@@ -237,13 +237,13 @@ const chat1Config = ref([
                   </section>
                 </article>
               </div>
-            </div>
-            <div class="col-auto text-center">
-              <NextStepBtn
-                v-if="finishedChat >= 1"
-                btn-label="我來挑戰"
-                @click="checkAnswerOrGoNextPage"
-              ></NextStepBtn>
+              <div class="col-auto text-center">
+                <NextStepBtn
+                  v-if="finishedChat >= 1"
+                  btn-label="我來挑戰"
+                  @click="checkAnswerOrGoNextPage"
+                ></NextStepBtn>
+              </div>
             </div>
           </div>
         </div>
@@ -402,5 +402,14 @@ const chat1Config = ref([
     top: 38%;
     width: 39%;
   }
+}
+
+.bg-plant {
+  background-image: url("../assets/largePlant6.svg");
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-size: 50vmin;
+  background-position: center bottom -42vmin;
+  padding-bottom: 120px;
 }
 </style>

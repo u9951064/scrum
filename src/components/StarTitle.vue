@@ -3,7 +3,7 @@ import IconStar from "./icons/IconStar.vue";
 </script>
 
 <template>
-  <div class="star-title row g-0 my-2">
+  <div class="star-title row g-0">
     <div class="col text-end">
       <IconStar></IconStar>
     </div>
@@ -23,6 +23,8 @@ import IconStar from "./icons/IconStar.vue";
   overflow: hidden;
   align-items: center;
   justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .star-title > * {

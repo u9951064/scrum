@@ -2253,9 +2253,9 @@
   display          : block;
   position         : absolute;
   left             : 50%;
-  -webkit-animation: zip 12s linear infinite;
-  -moz-animation   : zip 12s linear infinite;
-  animation        : zip 12s linear infinite;
+  -webkit-animation: zip 5s linear infinite;
+  -moz-animation   : zip 5s linear infinite;
+  animation        : zip 5s linear infinite;
 }
 
 .comet .comet-inner:before {

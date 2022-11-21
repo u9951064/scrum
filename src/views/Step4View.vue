@@ -131,15 +131,15 @@ onMounted(() => {
       <div class="col-auto">
         <StepBar :current-step="4"></StepBar>
       </div>
-      <div class="col py-3 overflow-hidden">
+      <div class="col pt-3 overflow-hidden">
         <div
           class="h-100 row m-auto flex-column flex-md-row flex-nowrap content-region"
         >
           <div class="col-auto">
             <StepList :current-step="4"></StepList>
           </div>
-          <div class="col overflow-auto">
-            <div class="row flex-column flex-nowrap justify-content-center">
+          <div class="col overflow-auto bg-plant">
+            <div class="row flex-column flex-nowrap g-0 justify-content-center">
               <div class="col main-operation-block p-md-5">
                 <article
                   class="row flex-column flex-md-row flex-nowrap flex-md-wrap"
@@ -256,12 +256,12 @@ onMounted(() => {
                   </section>
                 </article>
               </div>
-            </div>
-            <div class="col-auto text-center">
-              <NextStepBtn
-                btn-label="準備好了！開始 Sprint"
-                @click="checkAnswerOrGoNextPage"
-              ></NextStepBtn>
+              <div class="col-auto text-center">
+                <NextStepBtn
+                  btn-label="準備好了！開始 Sprint"
+                  @click="checkAnswerOrGoNextPage"
+                ></NextStepBtn>
+              </div>
             </div>
           </div>
         </div>
@@ -358,5 +358,14 @@ onMounted(() => {
   right: 0.75rem;
   margin-top: -2.1rem;
   padding: 5px 10px;
+}
+
+.bg-plant {
+  background-image: url("../assets/largePlant4.svg");
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-size: 50vmin;
+  background-position: center bottom -35vmin;
+  padding-bottom: 120px;
 }
 </style>

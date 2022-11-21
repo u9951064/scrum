@@ -23,7 +23,7 @@ const shareLink = () => {
       <div class="col-auto">
         <StepBar :current-step="8"></StepBar>
       </div>
-      <div class="col py-3 overflow-hidden">
+      <div class="col pt-3 overflow-hidden">
         <div
           class="h-100 row m-auto flex-column flex-md-row flex-nowrap content-region"
         >
@@ -31,8 +31,8 @@ const shareLink = () => {
             <StepList :current-step="8"></StepList>
           </div>
           <div class="col overflow-auto position-relative">
-            <img class="ufo" src="../assets/UFO.svg" />
             <img class="plant" src="../assets/largePlant8.svg" />
+            <img class="ufo" src="../assets/UFO.svg" />
             <div class="content-block">
               <div class="p-md-5">
                 恭喜通過 Scrum 新手村任務！<br />
@@ -91,7 +91,6 @@ const shareLink = () => {
   right: 0;
   margin: auto;
   width: 15vmin;
-  z-index: 3;
   animation: up-down 5s linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -105,7 +104,6 @@ const shareLink = () => {
   right: 0;
   margin: auto;
   width: 55vmin;
-  z-index: 2;
   animation: rotation 120s linear;
   animation-iteration-count: infinite;
   filter: drop-shadow(0px 0px 1.5em #5c3af4c8);

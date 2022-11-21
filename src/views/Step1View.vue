@@ -17,7 +17,7 @@ const gotoNextPage = () => {
 const typeInConfig = ref([
   {
     tagBegin: "<p>",
-    inner: "我是 敏捷宇宙 - 皮歐星 的 PO",
+    inner: "我是 敏捷宇宙 的 PO，果敏兒",
     tagEnd: "</p>",
   },
   {
@@ -67,19 +67,23 @@ const typeInConfig = ref([
       <div class="col-auto">
         <StepBar :current-step="1"></StepBar>
       </div>
-      <div class="col py-3 overflow-hidden">
+      <div class="col pt-3 overflow-hidden">
         <div
           class="h-100 row m-auto flex-column flex-md-row flex-nowrap content-region"
         >
           <div class="col-auto">
             <StepList :current-step="1"></StepList>
           </div>
-          <div class="col overflow-auto">
-            <div class="row flex-column flex-nowrap">
+          <div class="col overflow-auto bg-plant">
+            <div class="row flex-column flex-nowrap g-0">
               <div class="col main-operation-block p-md-5">
                 <article class="row flex-column flex-md-row flex-nowrap">
                   <section class="col-12 col-md-6 text-center">
-                    <GouMinErCVCard></GouMinErCVCard>
+                    <div
+                      class="h-100 w-100 row flex-column justify-content-center g-0"
+                    >
+                      <GouMinErCVCard class="col-auto w-100"></GouMinErCVCard>
+                    </div>
                   </section>
                   <section class="col-12 col-md-6 pt-3">
                     <TypeIn
@@ -149,5 +153,14 @@ const typeInConfig = ref([
   .hidden-nav {
     visibility: hidden;
   }
+}
+
+.bg-plant {
+  background-image: url("../assets/largePlant1.svg");
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-size: 55vmin;
+  background-position: center bottom -35vmin;
+  padding-bottom: 120px;
 }
 </style>
