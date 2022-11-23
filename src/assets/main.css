@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+TC:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap");
 @import url("./space.css");
 
 #app {
@@ -19,8 +19,8 @@
   font-weight: 400;
 }
 
-.fw-600 {
-  font-weight: 600;
+.fw-500 {
+  font-weight: 500;
 }
 
 .c-black {
@@ -43,9 +43,20 @@
   background-color: #ffffff;
 }
 
-.highlight-text {
-  display: inline-block;
+.highlight-green {
   border-bottom: 2px solid #0defb5;
+}
+
+.highlight-blue {
+  border-bottom: 2px solid #13D1FF;
+}
+
+.highlight-yellow {
+  border-bottom: 2px solid #FFAD21;
+}
+
+.highlight-red {
+  border-bottom: 2px solid #FF4069;
 }
 
 .hideBtn {

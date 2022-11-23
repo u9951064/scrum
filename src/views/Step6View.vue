@@ -423,6 +423,6 @@ const allowSubmit = computed(
   background-attachment: local;
   background-size: 50vmin;
   background-position: center bottom -42vmin;
-  padding-bottom: 120px;
+  padding-bottom: 90px;
 }
 </style>

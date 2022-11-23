@@ -21,7 +21,7 @@ const typeInConfig = ref([
     tagEnd: "</p>",
   },
   {
-    tagBegin: '<p><span class="highlight-text">',
+    tagBegin: '<p><span class="highlight-green">',
     inner: "PO 也就是產品負責人 (Product Owner)。",
     tagEnd: "</span></p>",
   },
@@ -37,7 +37,7 @@ const typeInConfig = ref([
         inner: "最後排出",
       },
       {
-        tagBegin: '<span class="highlight-text">',
+        tagBegin: '<span class="highlight-green">',
         inner: "產品待辦清單 (Product Backlog) 唷！",
         tagEnd: "</span>",
       },
@@ -88,7 +88,6 @@ const typeInConfig = ref([
                   <section class="col-12 col-md-6 pt-3">
                     <TypeIn
                       :screen-configs="typeInConfig"
-                      :speed-ms="10"
                       @ended="showBtn = true"
                     ></TypeIn>
                   </section>
@@ -161,6 +160,6 @@ const typeInConfig = ref([
   background-attachment: local;
   background-size: 55vmin;
   background-position: center bottom -35vmin;
-  padding-bottom: 120px;
+  padding-bottom: 90px;
 }
 </style>

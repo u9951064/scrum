@@ -32,7 +32,7 @@ const typeInConfig = ref([
         inner: "請接受挑戰任務，成功通過",
       },
       {
-        tagBegin: '<br /><span class="highlight-text">',
+        tagBegin: '<br /><span class="highlight-green">',
         inner: "Scrum 新手村的挑戰",
         tagEnd: "</span>",
       },

@@ -25,6 +25,7 @@ import IconStar from "./icons/IconStar.vue";
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .star-title > * {

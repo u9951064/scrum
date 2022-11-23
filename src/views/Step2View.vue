@@ -147,7 +147,7 @@ const chat1Config = ref([
           "請把需求放到產品待辦清單，並調整待辦的優先度順序。我們公司也推薦使用",
       },
       {
-        tagBegin: ' <span class="highlight-text">',
+        tagBegin: ' <span class="highlight-green">',
         inner: "Jira",
         tagEnd: "</span> ",
       },
@@ -294,7 +294,7 @@ const allowSubmit = computed(() => {
                                 itemKey="priority"
                               >
                                 <template #header>
-                                  <div class="py-2 c-purple bg-white">
+                                  <div class="py-2 c-purple bg-white fw-500">
                                     產品待辦清單 (Product Backlog)
                                   </div>
                                 </template>
@@ -375,7 +375,7 @@ const allowSubmit = computed(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 4rem;
+  min-height: 6rem;
   font-size: 14px;
 }
 
@@ -415,7 +415,8 @@ const allowSubmit = computed(() => {
 
   .list-group {
     height: 100%;
-    min-height: 35vh;
+    min-height: 26rem;
+    margin-bottom: -3px;
   }
 
   .list-target {
@@ -436,7 +437,7 @@ const allowSubmit = computed(() => {
   }
 
   .list-group:not(.list-target) .list-group-item + .list-group-item {
-    margin-top: 0.9rem;
+    margin-top: 0.4rem;
   }
 }
 
@@ -446,6 +447,6 @@ const allowSubmit = computed(() => {
   background-attachment: local;
   background-size: 50vmin;
   background-position: center bottom -35vmin;
-  padding-bottom: 120px;
+  padding-bottom: 90px;
 }
 </style>

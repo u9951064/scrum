@@ -16,14 +16,38 @@ const finishedChat = ref(0);
 const chat1Config = ref([
   {
     tagBegin: '<div class="fz-14px">',
-    inner:
-      "產品待辦清單好了之後，我們來召集 Scrum Master 和開發團隊共同召開 短衝規劃會議 (Sprint Planning)。",
+    inner: [
+      {
+        inner:
+          "產品待辦清單好了之後，我們來召集 Scrum Master 和開發團隊共同召開",
+      },
+      {
+        tagBegin: ' <span class="highlight-green">',
+        inner: "短衝規劃會議 (Sprint Planning)",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "。",
+      },
+    ],
     tagEnd: "</div>",
   },
   {
     tagBegin: '<div class="fz-14px">',
-    inner:
-      "短衝即是一個迭代，具有固定時間限制，我們會在這個會議中，決定要完成哪些工作事項來達到商業需求，列出短衝待辦清單，並由開發團隊在接下來的產品開發週期裡執行。",
+    inner: [
+      {
+        inner:
+          "短衝即是一個迭代，具有固定時間限制，我們會在這個會議中，決定要完成哪些工作事項來達到商業需求，列出",
+      },
+      {
+        tagBegin: '<span class="highlight-green">',
+        inner: "短衝待辦清單",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "，並由開發團隊在接下來的產品開發週期裡執行。",
+      },
+    ],
     tagEnd: "</div>",
   },
 ]);
@@ -31,14 +55,45 @@ const chat1Config = ref([
 const chat2Config = ref([
   {
     tagBegin: '<div class="fz-14px">',
-    inner:
-      "嗨嗨，你是新來的前端吧！ 我是這次的 Scrum Master 石光神，我的工作主要是促成開發團隊成員協作、引導團隊進行自省會議、提升團隊成員對 Scrum 瞭解。 這兩位是 開新果 和 發大才，是我們開發團隊的成員唷～",
+    inner: [
+      {
+        inner: "嗨嗨，你是新來的前端吧！ 我是這次的",
+      },
+      {
+        tagBegin: '<span class="highlight-blue">',
+        inner: "Scrum Master",
+        tagEnd: "</span> ",
+      },
+      {
+        inner:
+          "石光神，我的工作主要是促成開發團隊成員協作、引導團隊進行自省會議、提升團隊成員對 Scrum 瞭解。 這兩位是 開新果 和 發大才，是我們開發團隊的成員唷～",
+      },
+    ],
     tagEnd: "</div>",
   },
   {
     tagBegin: '<div class="fz-14px">',
-    inner:
-      "目前我們團隊一次 Sprint 週期是兩週的時間，依照我的觀察，目前團隊可以負擔的點數 (Sprint Point) 大約是 20 點左右。",
+    inner: [
+      {
+        inner: "目前我們團隊一次",
+      },
+      {
+        tagBegin: '<span class="highlight-blue">',
+        inner: "Sprint 週期是兩週",
+        tagEnd: "</span> ",
+      },
+      {
+        inner: "的時間，依照我的觀察，目前團隊可以負擔的點數 ",
+      },
+      {
+        tagBegin: '<span class="highlight-blue">',
+        inner: "(Sprint Point) 大約是 20 點",
+        tagEnd: "</span> ",
+      },
+      {
+        inner: "左右。",
+      },
+    ],
     tagEnd: "</div>",
   },
 ]);
@@ -56,8 +111,24 @@ const chat3Config = ref([
   },
   {
     tagBegin: '<div class="fz-14px">',
-    inner:
-      "Sprint Point，目的是為了衡量速度，是用大概花費的時間預估出的相對點數。",
+    inner: [
+      {
+        tagBegin: '<span class="highlight-yellow">',
+        inner: "Sprint Point",
+        tagEnd: "</span> ",
+      },
+      {
+        inner: "，目的是為了衡量速度，是用大概花費的時間",
+      },
+      {
+        tagBegin: '<span class="highlight-yellow">',
+        inner: "預估出的相對點數",
+        tagEnd: "</span> ",
+      },
+      {
+        inner: "。",
+      },
+    ],
     tagEnd: "</div>",
   },
 ]);
@@ -67,7 +138,15 @@ const chat4Config = ref([
     tagBegin: '<div class="fz-14px">',
     inner: [
       {
-        inner: "沒錯，如 開新果 說的，我這邊已經把剛剛討論好的點數標上去囉～",
+        inner: "沒錯，如 開新果 說的，我這邊已經把剛剛討論好的點數",
+      },
+      {
+        tagBegin: '<span class="highlight-red">',
+        inner: "標上去囉～",
+        tagEnd: "</span> ",
+      },
+      {
+        inner: "囉～",
       },
       {
         tagBegin: "<br />",
@@ -78,8 +157,20 @@ const chat4Config = ref([
   },
   {
     tagBegin: '<div class="fz-14px">',
-    inner:
-      "By the way, 我們平常管理任務是使用 Jira 這套軟體，你有時間記得先去註冊和熟悉唷。",
+    inner: [
+      {
+        inner: "By the way, 我們平常管理任務是使用",
+      },
+      {
+        tagBegin: ' <span class="highlight-red">',
+        inner: "Jira",
+        tagEnd: "</span> ",
+      },
+      {
+        tagBegin: " ",
+        inner: "這套軟體，你有時間記得先去註冊和熟悉唷。",
+      },
+    ],
     tagEnd: "</div>",
   },
 ]);
@@ -108,7 +199,6 @@ const chat4Config = ref([
                     <ChatBox :role="Role.GouMinEr">
                       <TypeIn
                         :screen-configs="chat1Config"
-                        :speed-ms="10"
                         @ended="finishedChat = finishedChat + 1"
                       ></TypeIn>
                     </ChatBox>
@@ -119,14 +209,12 @@ const chat4Config = ref([
                     >
                       <TypeIn
                         :screen-configs="chat2Config"
-                        :speed-ms="10"
                         @ended="finishedChat = finishedChat + 1"
                       ></TypeIn>
                     </ChatBox>
                     <ChatBox :role="Role.KaiXinGou" v-if="finishedChat >= 2">
                       <TypeIn
                         :screen-configs="chat3Config"
-                        :speed-ms="10"
                         @ended="finishedChat = finishedChat + 1"
                       ></TypeIn>
                     </ChatBox>
@@ -138,7 +226,6 @@ const chat4Config = ref([
                     >
                       <TypeIn
                         :screen-configs="chat4Config"
-                        :speed-ms="10"
                         @ended="finishedChat = finishedChat + 1"
                       ></TypeIn>
                     </ChatBox>
@@ -212,6 +299,6 @@ const chat4Config = ref([
   background-attachment: local;
   background-size: 50vmin;
   background-position: center bottom -45vmin;
-  padding-bottom: 120px;
+  padding-bottom: 90px;
 }
 </style>

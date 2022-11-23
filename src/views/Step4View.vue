@@ -167,7 +167,7 @@ onMounted(() => {
                               itemKey="key"
                             >
                               <template #header>
-                                <div class="py-2 c-purple bg-white">
+                                <div class="py-2 c-purple bg-white fw-500">
                                   產品待辦清單 (Product Backlog)
                                 </div>
                               </template>
@@ -223,7 +223,7 @@ onMounted(() => {
                               itemKey="key"
                             >
                               <template #header>
-                                <div class="py-2 c-purple bg-white">
+                                <div class="py-2 c-purple bg-white fw-500">
                                   炙熱星 的短衝待辦清單
                                 </div>
                               </template>
@@ -318,7 +318,7 @@ onMounted(() => {
 
 .list-group {
   height: 100%;
-  min-height: 9rem;
+  min-height: 20rem;
   border: 3px solid #ffffff;
   border-radius: 0;
 }
@@ -341,7 +341,7 @@ onMounted(() => {
 }
 
 .list-group-item {
-  min-height: 4rem;
+  min-height: 4.5rem;
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   border-bottom: 3px solid #ffffff;
@@ -366,6 +366,6 @@ onMounted(() => {
   background-attachment: local;
   background-size: 50vmin;
   background-position: center bottom -35vmin;
-  padding-bottom: 120px;
+  padding-bottom: 90px;
 }
 </style>

@@ -199,6 +199,6 @@ const chat2Config = ref([
   background-attachment: local;
   background-size: 50vmin;
   background-position: center bottom -35vmin;
-  padding-bottom: 120px;
+  padding-bottom: 90px;
 }
 </style>
