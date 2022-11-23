@@ -1,6 +1,14 @@
 <script setup lang="ts">
 defineProps({
-  btnLabel: String,
+  btnLabel: {
+    type: String,
+    required: true,
+  },
+  disabled: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 defineEmits(["click"]);
@@ -8,7 +16,12 @@ defineEmits(["click"]);
 
 <template>
   <div class="">
-    <button class="next-btn" type="button" @click="$emit('click', $event)">
+    <button
+      class="next-btn"
+      type="button"
+      @click="$emit('click', $event)"
+      :disabled="disabled"
+    >
       {{ btnLabel }}
     </button>
   </div>
@@ -29,7 +42,7 @@ defineEmits(["click"]);
   margin: 40px auto 1rem;
   padding: calc(1.125rem + 2px);
   border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   background: #00092bdd;
   color: #ffffff;
   font-size: 1rem;
@@ -45,7 +58,16 @@ defineEmits(["click"]);
   transition: 0.5s;
 }
 
-.next-btn:hover {
+.next-btn:disabled {
+  opacity: 0.8;
+  animation-name: unset;
+  cursor: not-allowed;
+  background: #000000;
+  color: #555;
+  border-color: rgba(128, 128, 128, 0.7);
+}
+
+.next-btn:hover:not(:disabled) {
   padding: 1.125rem;
   border-width: 4px;
 }

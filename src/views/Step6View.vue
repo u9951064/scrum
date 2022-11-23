@@ -9,7 +9,7 @@ import StepList from "@/components/StepList.vue";
 import TypeIn from "@/components/TypeIn.vue";
 import Role from "@/constants/Role";
 import router from "@/router";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import draggable from "vuedraggable";
 import {
   useStore as usePopupStore,
@@ -83,6 +83,12 @@ const checkAnswerOrGoNextPage = () => {
       title: "順序錯誤",
       message: "Scrum 流程的順序錯囉",
       btnLabel: "再試一次",
+      btnCB: () => {
+        sprintRetroSource.value = [{ name: "retro" }] as SprintItem[];
+        sprintReviewSource.value = [{ name: "review" }] as SprintItem[];
+        sprintRetroTarget.value = [] as SprintItem[];
+        sprintReviewTarget.value = [] as SprintItem[];
+      },
     } as PopupShow);
   }
 };
@@ -96,6 +102,12 @@ const chat1Config = ref([
     tagEnd: "</div>",
   },
 ]);
+
+const allowSubmit = computed(
+  () =>
+    sprintRetroTarget.value.length !== 0 &&
+    sprintReviewTarget.value.length !== 0
+);
 </script>
 
 <template>
@@ -242,6 +254,7 @@ const chat1Config = ref([
                   v-if="finishedChat >= 1"
                   btn-label="我來挑戰"
                   @click="checkAnswerOrGoNextPage"
+                  :disabled="!allowSubmit"
                 ></NextStepBtn>
               </div>
             </div>

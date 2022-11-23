@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+TC:wght@400;700&display=swap');
-@import url('./space.css');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+TC:wght@400;700&display=swap");
+@import url("./space.css");
 
 #app {
-  position   : fixed;
-  height     : 100%;
-  width      : 100%;
-  top        : 0;
-  bottom     : 0;
-  left       : 0;
-  right      : 0;
-  overflow   : hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
   font-weight: 400;
-  font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
-  color      : #FFFFFF;
+  font-family: "Montserrat", "Noto Sans TC", sans-serif;
+  color: #ffffff;
 }
 
 .fw-400 {
@@ -28,7 +28,7 @@
 }
 
 .c-purple {
-  color: #00092B;
+  color: #00092b;
 }
 
 .fz-9px {
@@ -40,14 +40,22 @@
 }
 
 .bg-white {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .highlight-text {
   display: inline-block;
-  border-bottom: 2px solid #0DEFB5;
+  border-bottom: 2px solid #0defb5;
 }
 
 .hideBtn {
   opacity: 0;
+}
+
+[draggable], [data-draggable] {
+  cursor: grab;
+}
+
+[draggable]:active, [data-draggable]:active {
+  cursor: grab;
 }

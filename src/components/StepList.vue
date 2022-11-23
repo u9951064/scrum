@@ -25,19 +25,19 @@ const getLabel = (stepIndex: number): string => {
   }
   switch (props.currentStep) {
     case 1:
-      return "皮歐星";
+      return "PO星";
     case 2:
-      return "優鮮星";
+      return "順序星";
     case 3:
-      return "典數星";
+      return "點數星";
     case 4:
-      return "代半星";
+      return "待辦星";
     case 5:
-      return "短沖星";
+      return "短衝星";
     case 6:
-      return "食況星";
+      return "流程星";
     case 7:
-      return "迴饋星";
+      return "回饋星";
     case 8:
       return "敏捷星";
     default:

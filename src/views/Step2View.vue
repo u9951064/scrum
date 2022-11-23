@@ -6,7 +6,7 @@ import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
 import Role from "@/constants/Role";
 import router from "@/router";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 import TypeIn from "@/components/TypeIn.vue";
 import draggable from "vuedraggable";
 import {
@@ -70,38 +70,29 @@ const checkMobileAnswer = () => {
   const currentOrder = backlogPrioritiesForMobile.value.map(
     (record) => record.priority
   );
-  const isCorrect =
-    JSON.stringify([1, 2, 3, 4]) === JSON.stringify(currentOrder);
-  if (isCorrect) {
-    return true;
-  }
-  backlogPrioritiesForMobile.value = backlogPrioritiesForMobile.value.sort(
-    (a, b) => a.priority - b.priority
-  );
-  return false;
+  return JSON.stringify([1, 2, 3, 4]) === JSON.stringify(currentOrder);
 };
 const checkDesktopAnswer = () => {
   const currentOrder = backlogPrioritiesForDesktopTarget.value.map(
     (record) => record.priority
   );
-  const isCorrect =
-    JSON.stringify([1, 2, 3, 4]) === JSON.stringify(currentOrder);
-  if (isCorrect) {
-    return true;
-  }
-  while (backlogPrioritiesForDesktop.value.length > 0) {
-    const obj = backlogPrioritiesForDesktop.value.pop() as OptionRecord;
-    backlogPrioritiesForDesktopTarget.value.push(obj);
-  }
-  backlogPrioritiesForDesktopTarget.value =
-    backlogPrioritiesForDesktopTarget.value.sort(
-      (a, b) => a.priority - b.priority
-    );
-  return false;
+  return JSON.stringify([1, 2, 3, 4]) === JSON.stringify(currentOrder);
 };
 
 const gotoNextPage = () => {
   router.replace({ name: "step3" });
+};
+
+const fixAnswer = () => {
+  console.log('rrrr');
+  backlogPrioritiesForDesktopTarget.value =
+    backlogPrioritiesForDesktopTarget.value.sort(
+      (a, b) => a.priority - b.priority
+    );
+
+  backlogPrioritiesForMobile.value = backlogPrioritiesForMobile.value.sort(
+    (a, b) => a.priority - b.priority
+  );
 };
 
 const checkAnswerOrGoNextPage = () => {
@@ -130,6 +121,7 @@ const checkAnswerOrGoNextPage = () => {
       message: "產品待辦清單的順序錯囉，讓 果敏兒 幫你排完正確的順序吧！",
       btnLabel: "OK",
       btnCB: () => {
+        fixAnswer();
         isAllowChange.value = false;
       },
     } as PopupShow);
@@ -166,6 +158,13 @@ const chat1Config = ref([
     tagEnd: "</div>",
   },
 ]);
+
+const allowSubmit = computed(() => {
+  if (isMobile()) {
+    return true;
+  }
+  return backlogPrioritiesForDesktop.value.length === 0;
+});
 </script>
 
 <template>
@@ -196,7 +195,7 @@ const chat1Config = ref([
                     </ChatBox>
                   </section>
                   <section class="col-12 text-center" v-if="finishedChat >= 1">
-                    <div class="d-block d-md-none" ref="mobileDetector">
+                    <div class="d-block d-md-none">
                       <StarTitle
                         >拖移區塊，並調整待辦清單的優先度順序</StarTitle
                       >
@@ -326,7 +325,9 @@ const chat1Config = ref([
                   v-if="finishedChat >= 1"
                   btn-label="排序完成"
                   @click="checkAnswerOrGoNextPage"
+                  :disabled="!allowSubmit"
                 ></NextStepBtn>
+                <div class="d-block d-md-none" ref="mobileDetector"></div>
               </div>
             </div>
           </div>

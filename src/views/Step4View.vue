@@ -333,9 +333,9 @@ onMounted(() => {
   color: #00092b;
   background-color: #0defb5;
   text-align: center;
-  font-size: 0.9rem;
-  line-height: 0.9rem;
-  padding: 0.3rem;
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+  padding: 0.4rem;
   border-radius: 100%;
   overflow: hidden;
 }

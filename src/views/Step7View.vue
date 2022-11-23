@@ -9,12 +9,17 @@ import StepList from "@/components/StepList.vue";
 import TypeIn from "@/components/TypeIn.vue";
 import Role from "@/constants/Role";
 import router from "@/router";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import {
   useStore as usePopupStore,
   type PopupShow,
 } from "../store/popupMessage";
 
+interface ListItem {
+  label: string;
+  checked: boolean;
+  correctly: boolean;
+}
 const popupStore = usePopupStore();
 
 const goodJobList = reactive([
@@ -28,7 +33,7 @@ const goodJobList = reactive([
     checked: false,
     correctly: true,
   },
-]);
+] as ListItem[]);
 
 const improveList = reactive([
   {
@@ -41,7 +46,7 @@ const improveList = reactive([
     checked: false,
     correctly: false,
   },
-]);
+] as ListItem[]);
 
 const checkAnswer = (): boolean => {
   let isCorrectly = true;
@@ -93,7 +98,7 @@ const chat1Config = ref([
   {
     tagBegin: '<div class="fz-14px">',
     inner:
-      "哇賽新來的，你真的很幸運，今天剛好是 敏捷星 的 Retro，你也來見識一下，看看 Retro 都該做些什麼吧～～",
+      "哇賽新來的，你真的很幸運，今天剛好有 Retro，你也來見識一下，看看 Retro 都該做些什麼吧～～",
     tagEnd: "</div>",
   },
   {
@@ -103,6 +108,12 @@ const chat1Config = ref([
     tagEnd: "</div>",
   },
 ]);
+
+const allowSubmit = computed(
+  () =>
+    improveList.findIndex((el) => el.checked) !== -1 &&
+    goodJobList.findIndex((el) => el.checked) !== -1
+);
 </script>
 
 <template>
@@ -203,6 +214,7 @@ const chat1Config = ref([
                   v-if="finishedChat >= 1"
                   btn-label="我想我了解了！"
                   @click="checkAnswerOrGoNextPage"
+                  :disabled="!allowSubmit"
                 ></NextStepBtn>
               </div>
             </div>
