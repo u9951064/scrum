@@ -84,7 +84,6 @@ const gotoNextPage = () => {
 };
 
 const fixAnswer = () => {
-  console.log('rrrr');
   backlogPrioritiesForDesktopTarget.value =
     backlogPrioritiesForDesktopTarget.value.sort(
       (a, b) => a.priority - b.priority
