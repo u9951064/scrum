@@ -97,8 +97,19 @@ const finishedChat = ref(0);
 const chat1Config = ref([
   {
     tagBegin: '<div class="fz-14px">',
-    inner:
-      "換你來試試看，在這經典的 Scrum 流程圖中，這些流程分別代表哪一個會議呢？",
+    inner: [
+      {
+        inner: "換你來試試看，在這經典的",
+      },
+      {
+        tagBegin: ' <span class="highlight-yellow">',
+        inner: "Scrum 流程圖",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "中，這些流程分別代表哪一個會議呢？",
+      },
+    ],
     tagEnd: "</div>",
   },
 ]);

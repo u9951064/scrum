@@ -16,7 +16,20 @@ const finishedChat = ref(0);
 const chat1Config = ref([
   {
     tagBegin: '<div class="fz-14px">',
-    inner: "等等，你都還不知道什麼是 Sprint 吧！",
+    inner: [
+      {
+        inner: "等等，你都還不知道什麼是",
+      },
+      {
+        tagBegin: ' <span class="highlight-yellow">',
+        inner: "Sprint",
+        tagEnd: "</span>",
+      },
+      {
+        tagBegin: " ",
+        inner: "吧！",
+      },
+    ],
     tagEnd: "</div>",
   },
   {
@@ -34,19 +47,54 @@ const chat1Config = ref([
 const chat2Config = ref([
   {
     tagBegin: '<div class="fz-14px">',
-    inner: "Sprint 是一個短衝，開發團隊會在這期間執行開發。",
+    inner: [
+      {
+        tagBegin: '<span class="highlight-red">',
+        inner: "Sprint 是一個短衝",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "，開發團隊會在這期間執行開發。",
+      },
+    ],
     tagEnd: "</div>",
   },
   {
     tagBegin: '<div class="fz-14px">',
-    inner:
-      "在這段期間內，開發團隊舉辦每日站立會議 (Daily Scrum)，追蹤成員間的工作狀況。",
+    inner: [
+      { inner: "在這段期間內，開發團隊舉辦" },
+      {
+        tagBegin: '<span class="highlight-red">',
+        inner: "每日站立會議 (Daily Scrum)",
+        tagEnd: "</span>",
+      },
+      { inner: "，追蹤成員間的工作狀況。" },
+    ],
     tagEnd: "</div>",
   },
   {
     tagBegin: '<div class="fz-14px">',
-    inner:
-      "除了每日站立會議，在 Sprint 的結束也會包含短衝檢視會議 (Sprint Review)、短衝自省會議(Sprint Retrospective)。",
+    inner: [
+      {
+        inner: "除了每日站立會議，在 Sprint 的結束也會包含",
+      },
+      {
+        tagBegin: '<span class="highlight-red">',
+        inner: "短衝檢視會議 (Sprint Review)",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "、",
+      },
+      {
+        tagBegin: '<span class="highlight-red">',
+        inner: "短衝自省會議(Sprint Retrospective)",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "。",
+      },
+    ],
     tagEnd: "</div>",
   },
 ]);

@@ -61,6 +61,7 @@ const roleClass = computed(() => {
   max-width: 100%;
   margin: auto;
   overflow: hidden;
+  align-items: flex-start;
 }
 .chat-box ~ .chat-box {
   padding-top: 1.25rem;

@@ -33,7 +33,7 @@ const chat1Config = ref([
     tagEnd: "</div>",
   },
   {
-    tagBegin: '<div class="fz-14px">',
+    tagBegin: '<div class="fz-14px pt-3">',
     inner: [
       {
         inner:
@@ -72,7 +72,7 @@ const chat2Config = ref([
     tagEnd: "</div>",
   },
   {
-    tagBegin: '<div class="fz-14px">',
+    tagBegin: '<div class="fz-14px pt-3">',
     inner: [
       {
         inner: "目前我們團隊一次",
@@ -156,7 +156,7 @@ const chat4Config = ref([
     tagEnd: "</div>",
   },
   {
-    tagBegin: '<div class="fz-14px">',
+    tagBegin: '<div class="fz-14px pt-3">',
     inner: [
       {
         inner: "By the way, 我們平常管理任務是使用",

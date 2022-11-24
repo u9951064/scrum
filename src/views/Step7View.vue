@@ -97,14 +97,60 @@ const finishedChat = ref(0);
 const chat1Config = ref([
   {
     tagBegin: '<div class="fz-14px">',
-    inner:
-      "哇賽新來的，你真的很幸運，今天剛好有 Retro，你也來見識一下，看看 Retro 都該做些什麼吧～～",
+    inner: [
+      {
+        inner: "哇賽新來的，你真的很幸運，今天剛好有 Retro，你",
+      },
+      {
+        tagBegin: '<span class="highlight-blue">',
+        inner: "也來",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "見識一下，看看 Retro 都該做些什麼吧～～",
+      },
+    ],
     tagEnd: "</div>",
   },
   {
-    tagBegin: '<div class="fz-14px">',
-    inner:
-      "我們會在會議裡請團隊成員提出哪些是做得好的地方、哪些可以繼續改進的地方？並記錄在 Confluence 中。 重點在於 (正面表述)，你也思考看看，哪一些是適合 Retro 的回饋吧～～",
+    tagBegin: '<div class="fz-14px pt-3 pb-1">',
+    inner: [
+      {
+        inner: "我們會在會議裡請團隊成員提出哪些是",
+      },
+      {
+        tagBegin: '<span class="highlight-blue">',
+        inner: "做得好的地方",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "、哪些可以",
+      },
+      {
+        tagBegin: '<span class="highlight-blue">',
+        inner: "繼續改進的地方",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "？並記錄在 Confluence 中。 重點在於",
+      },
+      {
+        tagBegin: '<span class="highlight-blue">',
+        inner: "(正面表述)",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "，你也思考看看，哪一些是",
+      },
+      {
+        tagBegin: '<span class="highlight-blue">',
+        inner: "適合 Retro 的回饋",
+        tagEnd: "</span>",
+      },
+      {
+        inner: "吧～～",
+      },
+    ],
     tagEnd: "</div>",
   },
 ]);
