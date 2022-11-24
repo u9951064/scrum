@@ -1,46 +1,52 @@
-# scrum
+# The F2E 4th Week3 Scrum 新手村
+宇宙充滿未知而令人著迷，如同新手們進入敏捷世界，運用好奇心探索這一切並遨遊於敏捷宇宙中。 在每個知識點星球上，將由 4 位 Scrum 角色外星人，引導新手闖關並探索 Scrum。 期待帶領新手們，透過一系列的遊歷，能更了解Scrum 精神，化身為敏捷宇宙的一份子！
+## Authors
+- Designer: Joyce
+- Developer: Josh
 
-This template should help get you started developing with Vue 3 in Vite.
+## 開發環境/使用技術/使用工具
+- nvm: Node.js 版本管理工具
+- vite: 專案建立工具
+- vue3: 前端開發框架
+- vue-router: Vue 路由管理
+- vuex: Vue 儲存器
+- TypeScript: 開發語言
+- vuedraggable (draggable.js): 拖拉控制套件
+- Web APIs (Share API, Clipboard API)
 
-## Recommended IDE Setup
+## 第三方服務
+- Youtube 音樂播放
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## 目錄結構
+- index.html 入口檔案
+- src 原始碼
+  - main.ts 程式入口
+  - App.vue 程式起始樣板
+  - assets 圖檔/CSS 等檔案目錄
+  - view 畫面檔案目錄
+  - store 儲存器檔案目錄
+  - router 路由設定檔案目錄
+  - components 共用元件檔案目錄
+  - constants 常數設定檔案目錄
+- public 靜態檔案
+- dist 編譯目標目錄
 
-## Type Support for `.vue` Imports in TS
+## 安裝執行說明
+- for developing:
+  ```bash
+  nvm use && npm ci && npm run dev
+  ```
+- for build static files
+  ```bash
+  nvm use && npm ci && npm run build
+  ```
+- for publish to github page
+  ```
+  nvm use && sh deploy.sh
+  ```
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## 活動相關網頁
+- [The F2E Home Page](https://2022.thef2e.com/)
+- [鈦坦 Scrum 流程參考文件](https://www.titansoft.com/tw/agile_skills/scrum)
+- [Jira](https://www.atlassian.com/software/jira)
+- [confluence](https://www.atlassian.com/wac/software/confluence)
