@@ -1,32 +1,52 @@
 <!DOCTYPE html>
 <html lang="zh-Hans-TW">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <meta name="author" content="Josh, Joyce" />
-    <meta name="copyright" content="Hi BUS!  | Design Joyce | Frontend Josh" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" href="/favicon.ico" />
-    <title>Scrum Planet</title>
-    <script type="module" crossorigin src="/assets/index.50db0fa9.js"></script>
-    <link rel="stylesheet" href="/assets/index.e78cafdc.css">
-  </head>
 
-  <body>
-    <div class="bg-space">
-      <span></span>
-      <span></span>
-      <span></span>
-      <div class="comet">
-        <div class="comet-inner"></div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="author" content="Josh, Joyce" />
+  <meta name="copyright" content="Scrum Planet! | Design Joyce | Frontend Josh" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="/favicon.ico" />
+  <title>Scrum Planet</title>
+  <script type="module" crossorigin src="/assets/index.7e720057.js"></script>
+  <link rel="stylesheet" href="/assets/index.47f398d3.css">
+</head>
+
+<body>
+  <div class="bg-space">
+    <span></span>
+    <span></span>
+    <span></span>
+    <div class="comet">
+      <div class="comet-inner"></div>
     </div>
-    <div id="app"></div>
-    
-  </body>
+  </div>
+  <div id="app"></div>
+  <div id="YouTubeVideoPlayerAPI"></div>
+  <script async src="//www.youtube.com/iframe_api"></script>
+  <script>
+    var player;
+    function onYouTubePlayerAPIReady() {
+      player = new YT.Player("YouTubeVideoPlayerAPI", {
+        height: "390",
+        width: "640",
+        videoId: "Ah3ARBvjgpk",
+        playerVars: {
+          controls: 0,
+          playlist: "Ah3ARBvjgpk",
+          loop: 1,
+        }
+      });
+    }
+    document.getElementById("app").addEventListener("click", () => {
+      player.playVideo();
+    });
+  </script>
+  
+</body>
+
 </html>
