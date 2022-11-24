@@ -16,11 +16,12 @@ const typeInConfig = ref([
     tagBegin: "<p>",
     inner: [
       {
-        inner: "嗨嗨，歡迎加入敏捷星球，",
+        inner: "嗨嗨，歡迎加入 敏捷宇宙，",
       },
       {
         tagBegin: "<br />",
-        inner: "在正式加入專案開發之前，需要請你先了解 Scrum 的流程與精神！",
+        inner:
+          "在正式加入專案開發之前，需要先請你到不同星球，了解 Scrum 的流程與精神！",
       },
     ],
     tagEnd: "</p>",
@@ -32,13 +33,12 @@ const typeInConfig = ref([
         inner: "請接受挑戰任務，成功通過",
       },
       {
-        tagBegin: '<br /><span class="highlight-green">',
-        inner: "Scrum 新手村的挑戰",
+        tagBegin: '<span class="highlight-green">',
+        inner: "Scrum 新手村的任務",
         tagEnd: "</span>",
       },
       {
-        tagBegin: "&nbsp;",
-        inner: "任務吧",
+        inner: "吧",
       },
     ],
     tagEnd: "</p>",

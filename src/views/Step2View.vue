@@ -176,7 +176,7 @@ const allowSubmit = computed(() => {
         <div
           class="h-100 row m-auto flex-column flex-md-row flex-nowrap content-region"
         >
-          <div class="col-auto">
+          <div class="col-auto step-block">
             <StepList :current-step="2"></StepList>
           </div>
           <div
@@ -334,9 +334,6 @@ const allowSubmit = computed(() => {
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-auto hidden-nav">
-          <StepList :current-step="1"></StepList>
-        </div>
       </div>
     </div>
   </main>
@@ -382,10 +379,6 @@ const allowSubmit = computed(() => {
 }
 
 @media (max-width: 767.9px) {
-  .hidden-nav {
-    display: none;
-  }
-
   .list-group {
     border: 3px solid #ffffff;
   }
@@ -409,10 +402,6 @@ const allowSubmit = computed(() => {
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid #ffffff;
     border-radius: 30px;
-  }
-
-  .hidden-nav {
-    visibility: hidden;
   }
 
   .list-group {

@@ -2,10 +2,7 @@
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
-import {
-  useStore as usePopupStore,
-  type PopupShow,
-} from "../store/popupMessage";
+import { useStore as usePopupStore } from "../store/popupMessage";
 
 const popupStore = usePopupStore();
 
@@ -88,8 +85,7 @@ const shareLink = () => {
             <div class="content-block">
               <div class="p-md-5">
                 恭喜通過 Scrum 新手村任務！<br />
-                正式加入敏捷宇宙，點擊上方小星球，<br />
-                自由探索 Scrum 精神吧！
+                正式加入敏捷宇宙，分享連結給你所有的朋朋吧～
               </div>
               <NextStepBtn
                 btn-label="分享連結"
@@ -97,9 +93,6 @@ const shareLink = () => {
               ></NextStepBtn>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-md-auto hidden-nav">
-          <StepList :current-step="1"></StepList>
         </div>
       </div>
     </div>
@@ -161,19 +154,9 @@ const shareLink = () => {
   filter: drop-shadow(0px 0px 1.5em #5c3af4c8);
 }
 
-@media (max-width: 767.9px) {
-  .hidden-nav {
-    display: none;
-  }
-}
-
 @media (min-width: 768px) {
   .content-region {
     height: 80%;
-  }
-
-  .hidden-nav {
-    visibility: hidden;
   }
 
   .ufo {

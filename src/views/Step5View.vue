@@ -193,9 +193,6 @@ const chat2Config = ref([
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-auto hidden-nav">
-          <StepList :current-step="1"></StepList>
-        </div>
       </div>
     </div>
   </main>
@@ -222,12 +219,6 @@ const chat2Config = ref([
   overflow-y: auto;
 }
 
-@media (max-width: 767.9px) {
-  .hidden-nav {
-    display: none;
-  }
-}
-
 @media (min-width: 768px) {
   .content-region {
     height: 80%;
@@ -237,10 +228,6 @@ const chat2Config = ref([
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid #ffffff;
     border-radius: 30px;
-  }
-
-  .hidden-nav {
-    visibility: hidden;
   }
 }
 

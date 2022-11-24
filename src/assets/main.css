@@ -1,18 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap");
 @import url("./space.css");
 
-#app {
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFFFF20;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFFFFF40;
+}
+
+#YouTubeVideoPlayerAPI {
+  width   : 1px;
+  height  : 1px;
   position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
+  top     : 0;
+  left    : 0;
+}
+
+#app {
+  position   : fixed;
+  height     : 100%;
+  width      : 100%;
+  top        : 0;
+  bottom     : 0;
+  left       : 0;
+  right      : 0;
+  overflow   : hidden;
   font-weight: 400;
   font-family: "Montserrat", "Noto Sans TC", sans-serif;
-  color: #ffffff;
+  color      : #ffffff;
 }
 
 .fw-400 {
@@ -63,10 +83,12 @@
   opacity: 0;
 }
 
-[draggable], [data-draggable] {
+[draggable],
+[data-draggable] {
   cursor: grab;
 }
 
-[draggable]:active, [data-draggable]:active {
+[draggable]:active,
+[data-draggable]:active {
   cursor: grab;
 }
