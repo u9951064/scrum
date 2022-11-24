@@ -134,7 +134,10 @@ const allowSubmit = computed(
           <div class="col-auto">
             <StepList :current-step="6"></StepList>
           </div>
-          <div class="col overflow-auto bg-plant">
+          <div
+            class="col overflow-auto"
+            :class="{ 'bg-plant': finishedChat >= 1 }"
+          >
             <div class="row flex-column flex-nowrap g-0">
               <div class="col main-operation-block p-md-5">
                 <article

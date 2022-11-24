@@ -74,7 +74,7 @@ const typeInConfig = ref([
           <div class="col-auto">
             <StepList :current-step="1"></StepList>
           </div>
-          <div class="col overflow-auto bg-plant">
+          <div class="col overflow-auto" :class="{ 'bg-plant': showBtn }">
             <div class="row flex-column flex-nowrap g-0">
               <div class="col main-operation-block p-md-5">
                 <article class="row flex-column flex-md-row flex-nowrap">

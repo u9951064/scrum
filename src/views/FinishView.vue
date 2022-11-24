@@ -2,6 +2,51 @@
 import NextStepBtn from "@/components/NextStepBtn.vue";
 import StepBar from "@/components/StepBar.vue";
 import StepList from "@/components/StepList.vue";
+import {
+  useStore as usePopupStore,
+  type PopupShow,
+} from "../store/popupMessage";
+
+const popupStore = usePopupStore();
+
+const fallbackCopyTextToClipboard = (text: string, callback?: Function) => {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.position = "fixed";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    document.execCommand("copy");
+  } catch (err) {
+    // NOTHING TODO
+  } finally {
+    document.body.removeChild(textArea);
+  }
+  if (callback) {
+    callback();
+  }
+};
+
+const copyTextToClipboard = (text: string, callback?: Function) => {
+  if (!navigator.clipboard) {
+    fallbackCopyTextToClipboard(text, callback);
+    return;
+  }
+  navigator.clipboard.writeText(text).then(
+    () => {
+      if (callback) {
+        callback();
+      }
+    },
+    () => {
+      fallbackCopyTextToClipboard(text, callback);
+    }
+  );
+};
 
 const shareLink = () => {
   const url = window.location.href.replace(/#[\w\W]+$/, "");
@@ -12,7 +57,14 @@ const shareLink = () => {
       url,
     });
   } else {
-    // TODO: not support share api
+    copyTextToClipboard(`Scrum Planet~ 一起來學習 Scrum ${url}`, () => {
+      popupStore.dispatch("show", {
+        title: "複製成功",
+        message: "已複製連結，趕快貼給你的朋友吧！",
+        btnLabel: "確認",
+        icon: "success",
+      });
+    });
   }
 };
 </script>

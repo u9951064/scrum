@@ -113,7 +113,10 @@ const chat2Config = ref([
           <div class="col-auto">
             <StepList :current-step="5"></StepList>
           </div>
-          <div class="col overflow-auto bg-plant">
+          <div
+            class="col overflow-auto"
+            :class="{ 'bg-plant': finishedChat >= 2 }"
+          >
             <div class="row flex-column g-0 flex-nowrap">
               <div class="col main-operation-block p-md-5">
                 <article
