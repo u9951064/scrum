@@ -99,39 +99,39 @@ const typeInConfig = ref([
 }
 
 .plant1 {
-  width: 23vw;
-  top: 43vh;
+  width: 20vw;
+  top: 34.4vh;
   left: 25vw;
   animation-duration: 100s;
   filter: drop-shadow(0px 0px 0.8em #8dcfcb68);
 }
 
 .plant2 {
-  width: 9vw;
-  top: 22vh;
+  width: 8vw;
+  top: 17.6vh;
   left: 20vw;
   animation-duration: 50s;
   filter: drop-shadow(0px 0px 0.8em #92ff5b9b);
 }
 
 .plant3 {
-  width: 46vw;
-  top: -10vh;
+  width: 42vw;
+  top: -12vh;
   left: -10vw;
   animation-duration: 60s;
   filter: drop-shadow(0px 0px 0.8em #b766ff9a);
 }
 
 .plant4 {
-  width: 23vw;
-  top: 31vh;
+  width: 20vw;
+  top: 24.8vh;
   left: -5vw;
   animation-duration: 40s;
   filter: drop-shadow(0px 0px 0.7em #ff63559c);
 }
 
 .plant5 {
-  width: 35vw;
+  width: 31vw;
   top: -4vh;
   right: -13vw;
   animation-duration: 90s;
@@ -139,49 +139,137 @@ const typeInConfig = ref([
 }
 
 .plant6 {
-  width: 21vw;
-  top: 23vh;
+  width: 19vw;
+  top: 18.4vh;
   right: 12vw;
   animation-duration: 70s;
   filter: drop-shadow(0px 0px 0.8em #ff414166);
 }
 
 .plant7 {
-  width: 7vw;
-  top: 15vh;
+  width: 4vw;
+  top: 12vh;
   right: 36vw;
   animation-duration: 40s;
   filter: drop-shadow(0px 0px 1em #faa84ab6);
 }
 
 .plant8 {
-  width: 50vw;
-  bottom: 30vh;
+  width: 38vw;
+  top: 32vh;
   right: -10vw;
   animation-duration: 110s;
   filter: drop-shadow(0px 0px 1.2em #5c3af4c8);
 }
 
 .ufo {
-  width: 7.5vw;
+  width: 6vw;
   position: absolute;
-  top: 60vh;
+  top: 48vh;
   left: 4vh;
   animation: fly 6s linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
+@media (min-width: 390px) {
+  .plant1 {
+    top: 43vh;
+  }
+
+  .plant2 {
+    top: 22vh;
+  }
+
+  .plant3 {
+    top: -10vh;
+  }
+
+  .plant4 {
+    top: 31vh;
+  }
+
+  .plant5 {
+    top: -4vh;
+  }
+
+  .plant6 {
+    top: 23vh;
+  }
+
+  .plant7 {
+    top: 15vh;
+  }
+
+  .plant8 {
+    top: 45vh;
+  }
+
+  .ufo {
+    top: 55vh;
+  }
+}
+
 @media (min-width: 768px) {
   .plant1 {
+    width: 18vw;
+    top: 40vh;
+  }
+
+  .plant2 {
+    width: 8vw;
+    top: 20vh;
+    left: 28vw;
+  }
+
+  .plant3 {
+    width: 32vw;
+    top: -12vh;
+  }
+
+  .plant4 {
+    width: 16vw;
+    top: 29vh;
+    left: -5vw;
+  }
+
+  .plant5 {
+    width: 28vw;
+    top: -6vh;
+  }
+
+  .plant6 {
+    width: 12vw;
+    top: 20vh;
+  }
+
+  .plant7 {
+    width: 5vw;
+    top: 12vh;
+  }
+
+  .plant8 {
+    width: 35vw;
+    top: 40vh;
+  }
+
+  .ufo {
+    width: 6vw;
+    top: 60vh;
+    left: 9vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .plant1 {
     width: 11vw;
-    top: 35vh;
+    top: 28vh;
     left: 36vw;
   }
   .plant2 {
     width: 3vw;
     left: 40vw;
-    top: 18vh;
+    top: 14.4vh;
   }
 
   .plant3 {
@@ -193,37 +281,37 @@ const typeInConfig = ref([
   .plant4 {
     width: 7vw;
     left: 19vw;
-    top: 27vh;
+    top: 21.6vh;
   }
 
   .plant5 {
     width: 11vw;
-    right: 15vw;
+    right: 5vw;
     top: -4vh;
   }
 
   .plant6 {
     width: 5vw;
     right: 25vw;
-    top: 22vh;
+    top: 17.6vh;
   }
 
   .plant7 {
     width: 4vw;
     right: 48vw;
-    top: 11vh;
+    top: 8.8vh;
   }
 
   .plant8 {
     width: 20vw;
     right: 10vw;
-    bottom: 30vh;
+    top: 30vh;
   }
 
   .ufo {
     width: 5vw;
     left: 17vw;
-    top: 50vh;
+    top: 40vh;
   }
 }
 

@@ -168,6 +168,20 @@ const shareLink = () => {
   }
 }
 
+@media (min-width: 1440px) {
+  .content-region {
+    height: 80%;
+  }
+
+  .ufo {
+    width: 7vmin;
+  }
+  .plant {
+    bottom: 12vh;
+    width: 27vmin;
+  }
+}
+
 @keyframes up-down {
   from {
     transform: translateY(0vh);
