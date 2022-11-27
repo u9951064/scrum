@@ -424,6 +424,12 @@ const allowSubmit = computed(
   background-attachment: local;
   background-size: 50vmin;
   background-position: center bottom -42vmin;
-  padding-bottom: 90px;
+  padding-bottom: 70px;
+}
+
+@media (min-width: 768px) {
+  .bg-plant {
+    padding-bottom: 90px;
+  }
 }
 </style>

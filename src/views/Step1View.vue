@@ -147,6 +147,12 @@ const typeInConfig = ref([
   background-attachment: local;
   background-size: 55vmin;
   background-position: center bottom -35vmin;
-  padding-bottom: 90px;
+  padding-bottom: 70px;
+}
+
+@media (min-width: 768px) {
+  .bg-plant {
+    padding-bottom: 90px;
+  }
 }
 </style>
