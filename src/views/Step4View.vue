@@ -343,7 +343,7 @@ onMounted(() => {
   font-size: 9px;
   position: absolute;
   right: 0.75rem;
-  margin-top: -2.1rem;
+  margin-top: -2.5rem;
   padding: 5px 10px;
 }
 

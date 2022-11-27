@@ -302,7 +302,9 @@ const allowSubmit = computed(
 .list-item {
   width: 100%;
   align-items: center;
-  min-height: 3.5em;
+  min-height: 5.5em;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin: 0;
 }
 

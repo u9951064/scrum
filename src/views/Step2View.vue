@@ -223,7 +223,7 @@ const allowSubmit = computed(() => {
                             itemKey="priority"
                           >
                             <template #header>
-                              <div class="py-2 c-purple bg-white">
+                              <div class="py-2 c-purple bg-white fw-500">
                                 產品待辦清單 (Product Backlog)
                               </div>
                             </template>
@@ -363,6 +363,7 @@ const allowSubmit = computed(() => {
 .priority-label {
   font-size: 15px;
   font-weight: 700;
+  margin-right: -12px;
   color: #0defb5;
 }
 

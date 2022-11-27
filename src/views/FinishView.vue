@@ -49,19 +49,21 @@ const shareLink = () => {
   const url = window.location.href.replace(/#[\w\W]+$/, "");
   if (navigator.share) {
     navigator.share({
-      title: "Scrum Planet",
-      text: "一起來學習 Scrum",
+      text: `快來敏捷宇宙探險了解 Scrum 精神！ Scrum ${url}`,
       url,
     });
   } else {
-    copyTextToClipboard(`Scrum Planet~ 一起來學習 Scrum ${url}`, () => {
-      popupStore.dispatch("show", {
-        title: "複製成功",
-        message: "已複製連結，趕快貼給你的朋友吧！",
-        btnLabel: "確認",
-        icon: "success",
-      });
-    });
+    copyTextToClipboard(
+      `快來敏捷宇宙探險了解 Scrum 精神！ Scrum ${url}`,
+      () => {
+        popupStore.dispatch("show", {
+          title: "複製成功",
+          message: "已複製連結，趕快貼給你的朋友吧！",
+          btnLabel: "確認",
+          icon: "success",
+        });
+      }
+    );
   }
 };
 </script>
@@ -83,7 +85,7 @@ const shareLink = () => {
             <img class="plant" src="../assets/largePlant8.svg" />
             <img class="ufo" src="../assets/UFO.svg" />
             <div class="content-block">
-              <div class="p-md-5">
+              <div class="pt-md-5">
                 恭喜通過 Scrum 新手村任務！<br />
                 正式加入敏捷宇宙，分享連結給你所有的朋朋吧～
               </div>
@@ -130,7 +132,7 @@ const shareLink = () => {
 
 .ufo {
   position: absolute;
-  top: 6vmax;
+  top: 4vmax;
   bottom: 80vh;
   left: 0;
   right: 0;
@@ -148,7 +150,7 @@ const shareLink = () => {
   left: 0;
   right: 0;
   margin: auto;
-  width: 55vmin;
+  width: 60vmin;
   animation: rotation 120s linear;
   animation-iteration-count: infinite;
   filter: drop-shadow(0px 0px 1.5em #5c3af4c8);
@@ -160,11 +162,11 @@ const shareLink = () => {
   }
 
   .ufo {
-    width: 8vmin;
+    width: 10vmin;
   }
   .plant {
-    bottom: 10vh;
-    width: 30vmin;
+    bottom: 7vh;
+    width: 40vmin;
   }
 }
 
@@ -174,11 +176,12 @@ const shareLink = () => {
   }
 
   .ufo {
+    top: 5vmin;
     width: 7vmin;
   }
   .plant {
-    bottom: 12vh;
-    width: 27vmin;
+    bottom: 10vh;
+    width: 33vmin;
   }
 }
 
