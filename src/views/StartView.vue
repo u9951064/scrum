@@ -78,7 +78,7 @@ const typeInConfig = ref([
 .start-page {
   width: 100%;
   height: 100%;
-  padding-bottom: 8%;
+  padding-bottom: 5vh;
 }
 
 .start-page > .main-content-block {
@@ -89,6 +89,7 @@ const typeInConfig = ref([
 
 .start-page .description {
   font-size: 1rem;
+  margin-bottom: -1.5vh;
 }
 
 .plant {
@@ -293,7 +294,7 @@ const typeInConfig = ref([
   .plant6 {
     width: 5vw;
     right: 25vw;
-    top: 17.6vh;
+    top: 16.5vh;
   }
 
   .plant7 {
@@ -303,15 +304,15 @@ const typeInConfig = ref([
   }
 
   .plant8 {
-    width: 20vw;
+    width: 17vw;
     right: 10vw;
     top: 30vh;
   }
 
   .ufo {
     width: 5vw;
-    left: 17vw;
-    top: 40vh;
+    left: 25vw;
+    top: 45vh;
   }
 }
 
